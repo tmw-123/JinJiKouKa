@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
+    <title>評価者一覧</title>
+    <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+.container{
+border:1px solid #000;
+height:420px;
+width:60%;
+margin-top:7%;
+border-radius:4px;
+border-color:grey;
+text-align: center;
+margin: 0 auto;
+margin-top:50px;
+}
+ .annualtable {
+      border-collapse: collapse;
+      margin-left: 10px;
+      width: 700px;
+    }
+
+ th, td {
+         font-family: Arial, sans-serif;
+         font-size: 16px;
+         text-align: center;
+         padding: 8px 16px;
+         border: 1px solid #ccc;
+    }
+    th {
+      background: #eee;
+    }
+    div.scrollpjlist {
+    margin-top: 25px;
+    width: 750px;
+    height: 200px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollpjlist a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+div.scrollpjlist a:hover {
+  background-color: #777;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+<h3 style="float: left;font-family: Arial, sans-serif;font-size: 25px;">評価者一覧</h3><br>
+<div style="    float: left;">
+    <form th:action="@{/PjNameSearch}" method="post">
+        <label style="font-family: Arial, sans-serif;font-size: 16px;float: left;margin-top: 30px;">社員番号</label>
+        <select name="Supplier" id="supplier" style="width: 234px;height:28px;margin-left: -300px;margin-top: 30px;">
+            <option></option>
+            <option th:each="supplier : ${PjList}" th:text="${supplier.supplierCd}"></option>
+        </select>
+    </form>
+    <div class="scrollpjlist">
+        <table class="annualtable">
+            <thead>
+            <th></th>
+            <th>評価者</th>
+            <th>役職</th>
+            <th>等級</th>
+            <th>氏名</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td id="id"><input type="checkbox" value="1"></td>
+                <td id="prjNo"></td>
+                <td id="PjNameEng"></td>
+                <td id="supplierCd"></td>
+                <td id="areaCd"></td>
+               <!-- <td>
+                    <a th:href="@{/ProjectEdit/{prjNo}(prjNo=${pjList.prjNo})}" style="color: black;font-family: Arial, sans-serif;font-size: 16px;text-underline-position: under;">Edit</a>&nbsp;&nbsp;
+                    <a href="" style="color: black;font-family: Arial, sans-serif;font-size: 16px;">Earnings</a>
+                </td>-->
+            </tr>
+            <tr>
+                <td id="id"><input type="checkbox" value="1"></td>
+                <td id="prjNo"></td>
+                <td id="PjNameEng"></td>
+                <td id="supplierCd"></td>
+                <td id="areaCd"></td>
+                <!-- <td>
+                     <a th:href="@{/ProjectEdit/{prjNo}(prjNo=${pjList.prjNo})}" style="color: black;font-family: Arial, sans-serif;font-size: 16px;text-underline-position: under;">Edit</a>&nbsp;&nbsp;
+                     <a href="" style="color: black;font-family: Arial, sans-serif;font-size: 16px;">Earnings</a>
+                 </td>-->
+            </tr>
+            <tr>
+                <td><input type="checkbox" value="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <!-- <td>
+                     <a th:href="@{/ProjectEdit/{prjNo}(prjNo=${pjList.prjNo})}" style="color: black;font-family: Arial, sans-serif;font-size: 16px;text-underline-position: under;">Edit</a>&nbsp;&nbsp;
+                     <a href="" style="color: black;font-family: Arial, sans-serif;font-size: 16px;">Earnings</a>
+                 </td>-->
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <button style="margin-left: -300px;margin-top: 30px;width: 70px;background: #4686cf;height: 30px;border: 1px solid;">登録</button>
+    <button style="margin-left: 30px;width: 70px;background: #4686cf;height: 31px;border: 1px solid;">クリア</button>
+</div>
+</div>
+<script>
+function validateClear(){
+     document.getElementById("name").value="";
+     document.getElementById("supplier").value="";
+    <!-- alert("Wrong Username or Password!");-->
+}
+</script>
+
+</body>
+</html>
