@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <title>Approver Setting</title>
+    <style>
+.btn {
+	background-color: #68ab7c;
+	border: none;
+	color: black;
+	padding: 7px 14px;
+	text-align: center;
+	font-size: 15px;
+	transition: 0.3s;
+	border-radius: 4px;
+}
+
+.txtbox {
+	width: 170px;
+	height: 34px;
+	padding: 8px 20px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+.combo {
+	width: 170px;
+	height: 34px;
+	padding: 8px 10px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+.label {
+display: inline-block;
+background-color: #a2e0da;
+color: black;
+font-size:15px;
+width:110px;
+height:20px;
+text-align:left;
+padding:10px 4px 2px 4px;
+margin-left:300px;
+}
+
+.chk {
+	display: block;
+	position: relative;
+	margin-left: 400px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+</style>
+
+</head>
+<body>
+<div>
+<h3 style="margin-left: 600px;font-family: Arial, sans-serif;font-size: 25px;height:25px;">承認者設定</h3>
+<hr style="width:90%;margin-left:70px;padding:1px;border-style: inset;"><br>
+</div>
+<div style="margin-left: 70px;">
+    <form th:action="@{/fileChoose}" method="post">
+        <label style="margin-left:50px;">承認者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="shouninshaID" id="shouninshaID" class="txtbox" style="margin-left:50px;">
+        <label style="margin-left:90px;">自己評価フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikoflg" id="jikoflg" class="txtbox" style="margin-left:50px;">
+        <br><br>
+
+        <label style="margin-left:50px;">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="password" id="password" class="txtbox" style="margin-left:55px;">
+        <label style="margin-left:90px;">自己評価ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikorank" id="jikorank" class="txtbox" style="margin-left:50px;">
+        <label style="margin-left:90px;">自己評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikototalmark" id="jikototalmark" class="txtbox" style="margin-left:50px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">社員コード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="empCD" id="empCD" class="txtbox" style="margin-left:37px;">
+        <label style="margin-left:90px;">自己評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikorankbonus" id="jikorankbonus" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">自己評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikototalmark2" id="jikototalmark2" class="txtbox" style="margin-left:50px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">メールアドレス</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="mail" id="mail" class="txtbox" style="margin-left:5px;">
+        <label style="margin-left:90px;">部門調整ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departrank" id="departrank" class="txtbox" style="margin-left:50px;">
+        <label style="margin-left:90px;">部門調整合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departtotalmark" id="departtotalmark" class="txtbox" style="margin-left:50px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">所属コード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="ComboBox" id="shozokuCd" class="combo" style="margin-left:35px;">
+            <option>xxxxxx</option>
+            <option>yyyyyy</option>
+        </select>
+        <label style="margin-left:90px;">部門調整ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departbonus" id="departbonus" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">部門調整合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departtotalbonus" id="departtotalbonus" class="txtbox" style="margin-left:20px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">所属</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="shozoku" id="shozoku" class="txtbox" style="margin-left:82px;"><br><br>
+        <label style="margin-left:50px;">管理者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" value="1" style="margin-left: 20px;"><br><br>
+        <label style="margin-left:50px;">職制コード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="ComboBox" id="shokuseiCd" class="combo" style="margin-left:35px;">
+            <option>xxxxxx</option>
+            <option>yyyyyy</option>
+        </select><br><br>
+        <label style="margin-left:50px;">役職</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="yakushoku" id="yakushoku" class="txtbox" style="margin-left:82px;"><br><br>
+        <label style="margin-left:50px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="grade" id="grade" class="txtbox" style="margin-left:82px;"><br><br>
+        <label style="margin-left:50px;">氏名</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="name" id="name" class="txtbox" style="margin-left:82px;"><br><br>
+
+        <label style="margin-left:50px;">評価状況<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ステータス</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="ComboBox" id="sts" class="combo" style="margin-left:37px;">
+            <option>1:人事部</option>
+            <option>2:その他</option>
+        </select><br><br>
+
+        <label style="margin-left:50px;">自己評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikoID" id="jikoID" class="txtbox" style="margin-left:18px;"><br><br>
+
+        <label style="margin-left:50px;">一次評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstID" id="firstID" class="txtbox" style="margin-left:18px;"><br><br>
+
+        <label style="margin-left:50px;">二次評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secondID" id="secondID" class="txtbox" style="margin-left:18px;"><br><br>
+
+        <label style="margin-left:50px;">一次二次評価者ID</label>
+        <input type="text" name="firstsecondID" id="firstsecondID" class="txtbox" style="margin-left:2px;"><br><br>
+
+        <label style="margin-left:50px;">部門調整ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departID" id="departID" class="txtbox" style="margin-left:34px;"><br><br>
+
+    </form>
+</div>
+</body>
+</html>

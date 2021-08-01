@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+.btn {
+  background-color: #68ab7c;
+  border: none;
+  color: black;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius:4px;
+  width:200px;
+  text-align:left;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: #78e397;
+}
+</style>
+</head>
+<body>
+<div>
+    <h3 style="margin-left: 600px;font-family: Arial, sans-serif;font-size: 25px;height:25px;">ホームページ</h3><br>
+    <hr style="width:90%;margin-left:80px;padding:1px;border-style: inset;"><br><br>
+</div>
+<div style="margin-left: 250px;width:1500px;display: inline-block;">
+    <a th:href="@{/#}">
+        <button class="btn"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp; ユーザー設定</button></a>
+    <a th:href="@{/#}">
+        <button class="btn" style="margin-left:85px;"><i class="fa fa-link"></i>&nbsp;&nbsp;&nbsp; 所属設定</button></a>
+    <a th:href="@{/#}">
+        <button class="btn" style="margin-left:85px;"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp; 評価者設定</button></a>
+    </br></br></br>
+
+    <a th:href="@{/userInfoUpload}">
+        <button class="btn"><i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp; ユーザー取込</button></a>
+    <a th:href="@{/#}">
+        <button class="btn" style="margin-left:85px;"><i class="fa fa-globe"></i>&nbsp;&nbsp;&nbsp; 職制設定</button></a>
+    <a th:href="@{/#}">
+        <button class="btn" style="margin-left:85px;"><i class="fa fa-refresh"></i>&nbsp;&nbsp;&nbsp; 差戻設定</button></a>
+    </br></br></br>
+
+    <a th:href="@{/approveSetting}">
+        <button class="btn"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;&nbsp; 承認者設定</button></a>
+    <a th:href="@{/#}">
+        <button class="btn" style="margin-left:85px;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp; 人事考課名設定</button></a>
+    <a th:href="@{/#}"><button class="btn" style="margin-left:85px;"><i class="fa fa-print"></i>&nbsp;&nbsp;&nbsp; 考課結果出力</button></a>
+    </br></br></br>
+
+    <a th:href="@{/#}">
+        <button class="btn"><i class="fa fa-trophy"></i>&nbsp;&nbsp;&nbsp; 等級毎考課</br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;パターン設定</button></a></br>
+</div>
+</body>
+</html>
