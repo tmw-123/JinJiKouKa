@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=0">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+  <title>等級毎考課パターン登録</title>
+  <style>
+.btn {
+	background-color: #68ab7c;
+	border: none;
+	color: black;
+	padding: 7px 14px;
+	text-align: center;
+	font-size: 15px;
+	transition: 0.3s;
+	border-radius: 4px;
+}
+
+.txtbox {
+	width: 170px;
+	height: 34px;
+	padding: 8px 20px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+.combo {
+	width: 170px;
+	height: 34px;
+	padding: 8px 10px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+
+
+.chk {
+	display: block;
+	position: relative;
+	margin-left: 400px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  height: 220px; /* Should be removed. Only for demonstration */
+}
+
+.left{
+width: 40%;
+}
+
+.right{
+width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#btn_reg{
+width:100px;
+padding:10px;
+border:none;
+background:red;
+border-radius:5px;
+margin:10px;
+text-align:center;
+}
+#btn_reg:hover {
+background-color: #555;
+color: white;
+}
+
+
+#btn_delete{
+width:100px;
+padding:10px;
+border:none;
+background:#336B6B;
+border-radius:5px;
+margin:10px;
+text-align:center;
+}
+#btn_delete:hover {
+background-color: #555;
+color: white;
+}
+
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
+th {
+    background: #4c6491;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+}
+tr:nth-child(odd){
+  background-color: #c1e4f7;
+  color: #0a0a0a;
+}
+
+
+
+
+
+.zui-table {
+    border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+    background-color: #DDEFEF;
+    border: none;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-table tbody td {
+    border-bottom: solid 1px #DDEFEF;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-wrapper {
+    position: relative;
+    border:solid;
+    border-color:gray;
+    margin-right:120px;
+}
+
+.zui-scroller {
+    margin-left: 141px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 5px;
+    width: 87%;
+}
+
+.zui-table .zui-sticky-col {
+    border-left: solid 1px #DDEFEF;
+    border-right: solid 1px #DDEFEF;
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 120px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+  <h3 style="margin-left: 550px;font-family: Arial, sans-serif;font-size: 25px;height:25px;">等級毎考課パターン登録</h3>
+  <hr style="width:90%;margin-left:70px;padding:1px;border-style: inset;"><br>
+</div>
+<div style="margin-left: 70px;">
+  <form th:action="@{/fileChoose}" method="post">
+
+    <label style="margin-left:50px;">考課パターン</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="ComboBox" id="shozokuCd" class="combo" style="margin-left:35px;">
+      <option>xxxxxx</option>
+      <option>yyyyyy</option>
+    </select>
+    <br><br>
+    <label style="margin-left:90px;">職制</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;">
+    <br><br>
+    <label style="margin-left:90px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;">
+
+<br><br>
+
+
+    <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">成績</h5>
+
+    <div class="row">
+      <div class="column" style="margin-left: 50px;">
+        <div class="row">
+          <div class="column">
+            <label style="line-height:34px">成績１(項目)</label><br><br>
+            <label style="line-height:34px">成績１(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績１(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績１(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="column">
+        <div class="row">
+          <div class="column" style="margin-left:120px">
+            <label style="line-height:34px">成績2(項目)</label><br><br>
+            <label style="line-height:34px">成績2(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績2(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績2(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+
+
+    <div class="row">
+      <div class="column" style="margin-left: 50px;">
+        <div class="row">
+          <div class="column">
+            <label style="line-height:34px">成績3(項目)</label><br><br>
+            <label style="line-height:34px">成績3(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績3(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績3(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column">
+        <div class="row">
+          <div class="column" style="margin-left:120px">
+            <label style="line-height:34px">成績4(項目)</label><br><br>
+            <label style="line-height:34px">成績4(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績4(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績4(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+
+    <div class="row">
+      <div class="column">
+        <div class="row">
+          <div class="column" style="margin-left:50px">
+            <label style="line-height:34px">成績5(項目)</label><br><br>
+            <label style="line-height:34px">成績5(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績5(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績5(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">能力</h5>
+
+    <div class="row">
+      <div class="column" style="margin-left: 50px;">
+        <div class="row">
+          <div class="column">
+            <label style="line-height:34px">成績１(項目)</label><br><br>
+            <label style="line-height:34px">成績１(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績１(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績１(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="column">
+        <div class="row">
+          <div class="column" style="margin-left:120px">
+            <label style="line-height:34px">成績2(項目)</label><br><br>
+            <label style="line-height:34px">成績2(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績2(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績2(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg"  class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+
+
+    <div class="row">
+      <div class="column" style="margin-left: 50px;">
+        <div class="row">
+          <div class="column">
+            <label style="line-height:34px">成績3(項目)</label><br><br>
+            <label style="line-height:34px">成績3(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績3(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績3(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg"  class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column">
+        <div class="row">
+          <div class="column" style="margin-left:120px">
+            <label style="line-height:34px">成績4(項目)</label><br><br>
+            <label style="line-height:34px">成績4(評価の着眼点)</label><br><br>
+            <label style="line-height:34px">成績4(ウェイント昇給)</label><br><br>
+            <label style="line-height:34px">成績4(ウェイント賞与)</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+
+
+
+
+    <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">取組み姿勢</h5>
+
+    <div class="row">
+      <div class="column" style="margin-left: 50px;">
+        <div class="row">
+          <div class="column">
+            <label style="line-height:34px">取組み姿勢1（項目）</label><br><br>
+            <label style="line-height:34px">取組み姿勢1（評価の着眼点）</label><br><br>
+            <label style="line-height:34px">取組み姿勢1（ウェイト昇給）</label><br><br>
+            <label style="line-height:34px">取組み姿勢1（ウェイト賞与）</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="column">
+        <div class="row">
+          <div class="column" style="margin-left:120px">
+            <label style="line-height:34px">取組み姿勢2（項目）</label><br><br>
+            <label style="line-height:34px">取組み姿勢2（評価の着眼点）</label><br><br>
+            <label style="line-height:34px">取組み姿勢2（ウェイト昇給）</label><br><br>
+            <label style="line-height:34px">取組み姿勢2（ウェイト賞与）</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+
+
+    <div class="row">
+      <div class="column" style="margin-left: 50px;">
+        <div class="row">
+          <div class="column">
+            <label style="line-height:34px">取組み姿勢3（項目）</label><br><br>
+            <label style="line-height:34px">取組み姿勢3（評価の着眼点）</label><br><br>
+            <label style="line-height:34px">取組み姿勢3（ウェイト昇給）</label><br><br>
+            <label style="line-height:34px">取組み姿勢3（ウェイト賞与）</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg"  class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column">
+        <div class="row">
+          <div class="column" style="margin-left:120px">
+            <label style="line-height:34px">取組み姿勢4（項目）</label><br><br>
+            <label style="line-height:34px">取組み姿勢4（評価の着眼点）</label><br><br>
+            <label style="line-height:34px">取組み姿勢4（ウェイト昇給）</label><br><br>
+            <label style="line-height:34px">取組み姿勢4（ウェイト賞与）</label>
+          </div>
+          <div class="column">
+            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <input type="button" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:35%">
+    <input type="button" value="削除" name="btn_login" id="btn_delete">
+
+  </form>
+
+</div>
+
+<br><br>
+
+<div class="zui-wrapper" style="margin-left:120px;">
+  <div class="zui-scroller">
+    <table class="zui-table">
+      <thead>
+      <tr>
+        <th class="zui-sticky-col">アクション</th>
+        <th>考課パターン</th>
+        <th>職制</th>
+        <th>等級</th>
+        <th>成績１(項目)</th>
+        <th>成績１(評価の着眼点)</th>
+        <th>成績１(ウェイント昇給)</th>
+        <th>成績１(ウェイント賞与)</th>
+
+        <th>成績2(項目)</th>
+        <th>成績2(評価の着眼点)</th>
+        <th>成績2(ウェイント昇給)</th>
+        <th>成績2(ウェイント賞与)</th>
+
+        <th>成績3(項目)</th>
+        <th>成績3(評価の着眼点)</th>
+        <th>成績3(ウェイント昇給)</th>
+        <th>成績3(ウェイント賞与)</th>
+
+        <th>成績4(項目)</th>
+        <th>成績4(評価の着眼点)</th>
+        <th>成績4(ウェイント昇給)</th>
+        <th>成績4(ウェイント賞与)</th>
+
+        <th>成績5(項目)</th>
+        <th>成績5(評価の着眼点)</th>
+        <th>成績5(ウェイント昇給)</th>
+        <th>成績5(ウェイント賞与)</th>
+
+        <th>成績１(項目)</th>
+        <th>成績１(評価の着眼点)</th>
+        <th>成績１(ウェイント昇給)</th>
+        <th>成績１(ウェイント賞与)</th>
+
+        <th>成績2(項目)</th>
+        <th>成績2(評価の着眼点)</th>
+        <th>成績2(ウェイント昇給)</th>
+        <th>成績2(ウェイント賞与)</th>
+
+        <th>成績3(項目)</th>
+        <th>成績3(評価の着眼点)</th>
+        <th>成績3(ウェイント昇給)</th>
+        <th>成績3(ウェイント賞与)</th>
+
+        <th>成績4(項目)</th>
+        <th>成績4(評価の着眼点)</th>
+        <th>成績4(ウェイント昇給)</th>
+        <th>成績4(ウェイント賞与)</th>
+
+        <th>成績１(項目)</th>
+        <th>成績１(評価の着眼点)</th>
+        <th>成績１(ウェイント昇給)</th>
+        <th>成績１(ウェイント賞与)</th>
+
+        <th>成績2(項目)</th>
+        <th>成績2(評価の着眼点)</th>
+        <th>成績2(ウェイント昇給)</th>
+        <th>成績2(ウェイント賞与)</th>
+
+        <th>成績3(項目)</th>
+        <th>成績3(評価の着眼点)</th>
+        <th>成績3(ウェイント昇給)</th>
+        <th>成績3(ウェイント賞与)</th>
+
+        <th>成績4(項目)</th>
+        <th>成績4(評価の着眼点)</th>
+        <th>成績4(ウェイント昇給)</th>
+        <th>成績4(ウェイント賞与)</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr>
+        </a><td class="zui-sticky-col"><a href="">修正</a></td>
+        <td>22</td>
+        <td>PG</td>
+        <td>5'9"</td>
+        <td>02-07-1989</td>
+        <td>$473,604</td>
+        <td>Washington/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+      </tr>
+      <tr>
+        </a><td class="zui-sticky-col"><a href="">修正</a></td>
+        <td>22</td>
+        <td>PG</td>
+        <td>5'9"</td>
+        <td>02-07-1989</td>
+        <td>$473,604</td>
+        <td>Washington/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+      </tr>
+      <tr>
+        </a><td class="zui-sticky-col"><a href="">修正</a></td>
+        <td>22</td>
+        <td>PG</td>
+        <td>5'9"</td>
+        <td>02-07-1989</td>
+        <td>$473,604</td>
+        <td>Washington/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+      </tr>
+      <tr>
+        </a><td class="zui-sticky-col"><a href="">修正</a></td>
+        <td>22</td>
+        <td>PG</td>
+        <td>5'9"</td>
+        <td>02-07-1989</td>
+        <td>$473,604</td>
+        <td>Washington/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+      </tr>
+      <tr>
+        </a><td class="zui-sticky-col"><a href="">修正</a></td>
+        <td>22</td>
+        <td>PG</td>
+        <td>5'9"</td>
+        <td>02-07-1989</td>
+        <td>$473,604</td>
+        <td>Washington/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+      </tr>
+      <tr>
+        </a><td class="zui-sticky-col"><a href="">修正</a></td>
+        <td>22</td>
+        <td>PG</td>
+        <td>5'9"</td>
+        <td>02-07-1989</td>
+        <td>$473,604</td>
+        <td>Washington/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+        <td>08-13-1990</td>
+        <td>$4,917,000</td>
+        <td>Kentucky/USA</td>
+        <td>Kentucky/USA</td>
+      </tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--<div class="zui-wrapper">
+  <div class="zui-scroller">
+&lt;!&ndash;<div style="overflow-x:auto;overflow-y:auto;margin-left:120px;margin-right:120px;height:300px">&ndash;&gt;
+<table class="zui-table">
+  <thead>
+  <tr style="background: #4c6491;color: #ffffff;border: 1px solid #ccc;text-align: center;font-family: Arial, sans-serif;
+    font-size: 15px;padding: 8px 16px;">
+    <th class="zui-sticky-col">考課パターン</th>
+    <th>職制</th>
+    <th>等級</th>
+    <th>成績１(項目)</th>
+    <th>成績１(評価の着眼点)</th>
+    <th>成績１(ウェイント昇給)</th>
+    <th>成績１(ウェイント賞与)</th>
+
+    <th>成績2(項目)</th>
+    <th>成績2(評価の着眼点)</th>
+    <th>成績2(ウェイント昇給)</th>
+    <th>成績2(ウェイント賞与)</th>
+
+    <th>成績3(項目)</th>
+    <th>成績3(評価の着眼点)</th>
+    <th>成績3(ウェイント昇給)</th>
+    <th>成績3(ウェイント賞与)</th>
+
+    <th>成績4(項目)</th>
+    <th>成績4(評価の着眼点)</th>
+    <th>成績4(ウェイント昇給)</th>
+    <th>成績4(ウェイント賞与)</th>
+
+    <th>成績5(項目)</th>
+    <th>成績5(評価の着眼点)</th>
+    <th>成績5(ウェイント昇給)</th>
+    <th>成績5(ウェイント賞与)</th>
+  </tr>
+  </thead>
+
+
+  <tbody>
+
+  <tr class="zui-sticky-col">
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+  </tr>
+
+  <tr class="zui-sticky-col">
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+  </tr>
+
+  <tr class="zui-sticky-col">
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+  </tr>
+
+  <tr class="zui-sticky-col">
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+  </tr>
+
+  <tr class="zui-sticky-col">
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+  </tr>
+  <tr class="zui-sticky-col">
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+    <td>Testing Data</td>
+  </tr>
+
+
+
+</table>
+</div>
+</div>-->
+
+
+</body>
+</html>

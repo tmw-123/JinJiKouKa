@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Secondary Evaluation Screen</title>
+</head>
+<style>
+    table,th,td{
+    table-layout:fixed;
+    width:100%;
+    border:1px solid #000;
+    border-collapse:collapse;
+    }
+    input[type=text]{
+    box-sizing:border-box;
+    width:40px;
+    border:none;
+    text-align:center;
+    }
+    input[type=button]{
+    border-radius:5px;
+    border:2px solid darkblue;
+    font-weight: bold;
+    padding:5px 20px;
+    background-color:lightgrey;
+    }
+</style>
+<body>
+<h1 style="text-align:center">人事考課表</h1>
+<table>
+    <tr>
+        <th style="width:5px; height:30px;">所属</th>
+        <th style="width:40px; height:30px;"></th>
+        <th style="width:5px; height:30px;">役職</th>
+        <th style="width:40px; height:30px;"></th>
+        <th style="width:5px; height:30px;">等級</th>
+        <th style="width:40px; height:30px;"></th>
+        <th style="width:5px; height:30px;">名前</th>
+        <th style="width:40px; height:30px;"></th>
+    </tr>
+</table>
+<br>
+<table class="table table-bordered" id="evaluate_tb">
+    <thead>
+    <tr>
+        <th rowspan="2" style="width:5px;height:10px;text-align:center;background-color:#EAC835;">要<br>素</th>
+        <th rowspan="2" style="width:50px;height:10px;text-align:center;background-color:#EAC835;">項目</th>
+        <th rowspan="2" style="width:100px;height:10px;text-align:center;background-color:#EAC835;">評価の着眼点</th>
+        <th colspan="6" style="width:50px;height:10px;text-align:center;background-color:#EAC835;">評価</th>
+    </tr>
+    <tr>
+        <th style="width:10px;height:5px;text-align:center;background-color:#EAC835;">自己<br>評価</th>
+        <th style="width:10px;height:5px;text-align:center;background-color:#EAC835;">一次<br>評価</th>
+        <th style="width:10px;height:5px;text-align:center;background-color:#EAC835;">二次<br>評価</th>
+        <th style="width:10px;height:5px;text-align:center;background-color:#EAC835;">ウェイト<br>昇給</th>
+        <th style="width:10px;height:5px;text-align:center;background-color:#EAC835;">ウェイト<br>賞与</th>
+        <th style="width:10px;height:5px;text-align:center;background-color:#EAC835;">調整<br></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th rowspan="6" style="width:5px;height:10px;text-align:center;background-color:#EAC835;">成績</th>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">個人業務の達成度</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>担当する仕事を十分遂行した</li>
+                <li>実施した仕事の質は高かった</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">業務改善</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>担当する仕事の改善、工夫を実施した</li>
+                <li>業務改善の成果が上がった</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">仕事の管理企画開発</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>担当する仕事の進捗管理が出来た</li>
+                <li>情報収集、アイデア、計画が十分出来た</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">部下の管理・育成</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>組織として部下や後輩の管理が出来た</li>
+                <li>部下や後輩の育成が出来た</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">上司補佐</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>上司に対しする報告、連絡、相談している</li>
+                <li>上司に提案をしている</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <!------------------------------------    section1 end--------------------------------->
+    <tr>
+        <th rowspan="5" style="width:5px;height:10px;text-align:center;background-color:#EAC835;">能力</th>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">知識・技能</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>業務を行う為の高度な知識がある</li>
+                <li>業務を行う為の高度な技能がある</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">説明力</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>わかりやすい資料を作成できる</li>
+                <li>わかりやすく相手に伝える事が出来る</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+    </tr>
+    <!------------------------------    section2 end------------------------------>
+    <tr>
+        <th rowspan="5" style="width:5px;height:10px;text-align:center;background-color:#EAC835;">取組み姿勢</th>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">チャレンジ</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>高い目標を掲げて仕事をしている</li>
+                <li>新しいこと、難しい事に取り組んでいる</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">責任感</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>時間や決められた納期を守っている</li>
+                <li>与えられた仕事を最後までやり遂げる</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;">品質意識</td>
+        <td style="width:10px;height:10px;text-align:left;">
+            <ul>
+                <li>品質に対する意識を高く持っている</li>
+                <li>品質を高める活動をしている</li>
+            </ul>
+        </td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+    </tr>
+    <tr>
+        <td style="width:50px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;">-</td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+    </tr>
+    <!----------------------------------------    section3 end--------------------------->
+    <tr>
+        <th rowspan="3" style="width:5px;height:10px;text-align:center;background-color:#EAC835;">昇給</th>
+    </tr>
+    <tr>
+        <th colspan="2" style="width:50px;height:10px;text-align:center;">計(100点満点)</th>
+        <td style="width:10px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <th colspan="2" style="width:50px;height:10px;text-align:center;">評価ランク</th>
+        <td style="width:10px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <!-------------------------------    section 4 end--------------------------->
+    <tr>
+        <th rowspan="3" style="width:5px;height:10px;text-align:center;background-color:#EAC835;">賞与</th>
+    </tr>
+    <tr>
+        <th colspan="2" style="width:50px;height:10px;text-align:center;">計(100点満点)</th>
+        <td style="width:10px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <tr>
+        <th colspan="2" style="width:50px;height:10px;text-align:center;">評価ランク</th>
+        <td style="width:10px;height:10px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+        <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    </tr>
+    <!------------------   section 5 end---------------------------->
+    </tbody>
+</table>
+<br>
+<table class="table table-bordered" id="rule_tb">
+    <tbody>
+    <tr>
+        <th rowspan="7" style="width:43px; height:50px; background-color:#EAC835; border:1px solid #000;">考課基準</th>
+    </tr>
+    <tr>
+        <th style="width:160px; background-color:#EAC835;border:1px solid #000;">成績考課基準</th>
+        <th style="width:100px; background-color:#EAC835;border:1px solid #000;">目安</th>
+    </tr>
+    <tr>
+        <td style="width:160px; border-right:1px solid #000;">5-期待された水準を大きく上回り、極めて優れた成績を発揮した</td>
+        <td style="width:100px; border-right:1px solid #000;">期待する役割や目標に対して120%以上</td>
+    </tr>
+    <tr>
+        <td style="width:160px; border-right:1px solid #000;">4-期待された水準を上回り、優れた成績を発揮した</td>
+        <td style="width:100px; border-right:1px solid #000;">期待する役割や目標に対して100%以上</td>
+    </tr>
+    <tr>
+        <td style="width:160px; border-right:1px solid #000;">3-期待された水準程度の成績を発揮した</td>
+        <td style="width:100px; border-right:1px solid #000;">期待する役割や目標に対して90%以上</td>
+    </tr>
+    <tr>
+        <td style="width:160px; border-right:1px solid #000;">2-期待された水準を下回る成績であり、改善を要する</td>
+        <td style="width:100px; border-right:1px solid #000;">期待する役割や目標に対して70%以上</td>
+    </tr>
+    <tr>
+        <td style="width:160px; border-right:1px solid #000; border-bottom:1px solid #000;">1-期待された水準を大きく下回る成績であり、大いに改善を要する</td>
+        <td style="width:100px; border-right:1px solid #000; border-bottom:1px solid #000;">期待する役割や目標に対して70%未満</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table class="table table-bordered" id="grade_tb">
+    <tbody>
+    <tr>
+        <th rowspan="7" style="width:43px; height:50px; background-color:#EAC835; border:1px solid #000;">評価基準</th>
+    </tr>
+    <tr>
+        <th style="width:30px; background-color:#EAC835;border:1px solid #000;">評価点</th>
+        <th style="width:120px; background-color:#EAC835;border:1px solid #000;">評価点の目安</th>
+        <th style="width:100px; background-color:#EAC835;border:1px solid #000;">意味</th>
+    </tr>
+    <tr>
+        <td style="width:30px;border-right:1px solid #000;text-align:center;">S</td>
+        <td style="width:120px;border-right:1px solid #000;text-align:center;">100点～91点</td>
+        <td style="width:100px;border-right:1px solid #000;">全社的に見て極めて顕著な成果と努力であった</td>
+    </tr>
+    <tr>
+        <td style="width:30px;border-right:1px solid #000;text-align:center;">A</td>
+        <td style="width:120px;border-right:1px solid #000;text-align:center;">90点～76点</td>
+        <td style="width:100px;border-right:1px solid #000;">目標を上回る優秀な成果と努力であった</td>
+    </tr>
+    <tr>
+        <td style="width:30px;border-right:1px solid #000;text-align:center;">B</td>
+        <td style="width:120px;border-right:1px solid #000;text-align:center;">75点～61点</td>
+        <td style="width:100px;border-right:1px solid #000;">目標を達し成果を上げるよう努力した(基準)</td>
+    </tr>
+    <tr>
+        <td style="width:30px;border-right:1px solid #000; text-align:center;">C</td>
+        <td style="width:120px;border-right:1px solid #000;text-align:center;">60点～46点</td>
+        <td style="width:100px;border-right:1px solid #000;">目標は未達であり努力不足であった</td>
+    </tr>
+    <tr>
+        <td style="width:30px;border-right:1px solid #000; border-bottom:1px solid #000; text-align:center;">D</td>
+        <td style="width:120px;border-right:1px solid #000; border-bottom:1px solid #000;text-align:center;">45点以下</td>
+        <td style="width:100px;border-right:1px solid #000; border-bottom:1px solid #000;">目標が低く成果と努力が現れなかった</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th style="width:100px; background-color:#EAC835;">一次考課者コメント</th>
+        <th style="width:100px; background-color:#EAC835;">二次考課者コメント</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style="width:100px;"><textarea style="height:100px; width:600px; margin:7px; resize:none" disabled></textarea></td>
+        <td style="width:100px;"><textarea style="height:100px; width:600px; margin:7px; resize:none" disabled></textarea></td>
+    </tr>
+    <tr>
+        <td style="width:100px; text-align:center;"><input type="date" style="margin:10px;"></td>
+        <td style="width:100px; text-align:center;"><input type="date" style="margin:10px;"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<div style="text-align:center;">
+
+    <input type="button" name="button1" value="保存">
+
+    <input type="button" name="button2" value="完了">
+
+    <input type="button" name="button3" value="戻り" style="padding-bottom:2px;">
+
+</div>
+</body>
+</html>
