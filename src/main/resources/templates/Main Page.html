@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>Main Page Screen</title>
+	<style>
+		table,
+		th,
+		td {
+			width: 90%;
+			border: 1px solid #000;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main">
+		<div style="padding: 10px;">
+			<div style="text-align: right;">
+				<button style="background-color: blue;font-size: 20px;">ログアウト</button>
+			</div>
+			<div style="text-align: center;">
+				<h1 style="font-size: 30px;">人事考課システム</h1><br><br>
+				<a style="font-size: 25px;">過去評価一覧を参照する</a>
+			</div>
+		</div>
+		<div style="padding: 10px; margin-left: 50px; margin-right: 50px;">
+			<div class="row">
+				<div class="column">
+					<h1 style="font-size: 20px; margin-left: 20px; color: black;">
+						自己評価</h1>
+				</div>
+				<div class="tableFixHead" style="margin-left: 100px;">
+					<table style="margin-left: 10px; margin-right: 10px; margin-top:10px;width: 50%;">
+
+						<button style="background-color: blue;font-size: 15px;margin-left: 300px;">考課状況</button>
+						<tbody>
+							<tr>
+								<td style="width:5px; height:30px;">hello</td>
+								<td style="width:5px; height:30px;">一次、二次....</td>
+							</tr>
+						</tbody>
+					</table><br><br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column">
+					<h1 style="font-size: 20px; margin-left: 20px; color: black;">
+						評価</h1>
+				</div>
+				<div class="tableFixHead" style="margin-left: 100px;">
+					<table style="margin-left: 10px; margin-right: 10px; margin-top:10px;">
+
+						<thead>
+							<tr>
+								<th style="width:10px; height:30px;">考課種類</th>
+								<th style="width:10px; height:30px;">部署</th>
+								<th style="width:10px; height:30px;">職務</th>
+								<th style="width:10px; height:30px;">等級</th>
+								<th style="width:10px; height:30px;">名前</th>
+								<th style="width:10px; height:30px;">状況</th>
+								<th style="width:10px; height:30px;">昇給</th>
+								<th style="width:10px; height:30px;">賞与</th>
+								<th style="width:10px; height:30px;"></th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width:10px; height:30px;">一次、二次....</td>
+								<td style="width:10px; height:30px;">一次、二次....</td>
+								<td style="width:10px; height:30px;">一次、二次....</td>
+								<td style="width:10px; height:30px;">一次、二次....</td>
+								<td style="width:10px; height:30px;color: red;">一次、二次....</td>
+								<td style="width:10px; height:30px;">一次、二次....</td>
+								<td style="width:10px; height:30px;">一次、二次....</td>
+								<td style="width:10px; height:30px;">一次、二次....</td>
+								<td style="width:10px; height:30px;color: red;">一次、二次....</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
