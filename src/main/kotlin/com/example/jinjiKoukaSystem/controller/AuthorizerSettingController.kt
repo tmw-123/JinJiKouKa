@@ -8,10 +8,10 @@ import java.io.FileNotFoundException
 import java.io.FileReader
 
 @Controller
-class ApproverSettingController {
+class AuthorizerSettingController {
 
-    @RequestMapping("/approveSetting")
-    fun approveSetting(model: Model): String {
-        return "approverSetting"
+    @RequestMapping("/authorizerSetting")
+    fun authorizerSetting(model: Model): String {
+        return "authorizerSetting"
     }
 }
