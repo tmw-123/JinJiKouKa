@@ -13,4 +13,5 @@ class GradeServiceImpl {
     fun patternSearch(): List<Grade?>? {
         return ListRepo?.appraisalPattern()
     }
+
 }
