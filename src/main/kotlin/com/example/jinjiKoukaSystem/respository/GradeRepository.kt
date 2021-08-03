@@ -12,4 +12,5 @@ interface GradeRepository : CrudRepository<Grade, String> {
         nativeQuery = true
     )
     fun appraisalPattern(): List<Grade?>?
+
 }
