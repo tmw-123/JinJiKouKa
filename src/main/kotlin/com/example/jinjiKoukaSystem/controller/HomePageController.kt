@@ -42,4 +42,5 @@ class HomePageController {
     fun selfEvaluationScreen(model: Model): String {
         return "selfEvaluationScreen"
     }
+
 }
