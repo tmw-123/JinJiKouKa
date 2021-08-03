@@ -6,6 +6,7 @@ import javax.persistence.*
 @Table(name = "m_each_grade_appraisal_pattern")
 class Grade{
 
+    @Id
     @Column(name = "appraisal_pattern")
     var appraisal_pattern: String? = null
 
