@@ -6,6 +6,7 @@ import javax.persistence.*
 @Table(name = "m_belongs")
 class Belong{
 
+
     @Id
     @Column(name = "belong_cd")
     var belong_cd: Int? = null

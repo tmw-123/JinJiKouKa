@@ -7,6 +7,7 @@ import javax.persistence.*
 class EvaluatorRegistration{
 
 
+
     @Id
     @Column(name = "employee_cd")
     var employee_cd : String? = null

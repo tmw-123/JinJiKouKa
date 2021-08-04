@@ -10,6 +10,7 @@ class AppraisalPattern{
     @Column(name = "appraisal_pattern")
     var appraisal_pattern : String? = null
 
+
     @Column(name = "officer")
     var officer : String? = null
 

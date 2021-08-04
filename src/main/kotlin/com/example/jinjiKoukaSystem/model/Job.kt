@@ -6,6 +6,7 @@ import javax.persistence.*
 @Table(name = "m_job")
 class Job{
 
+
     @Id
     @Column(name = "job_cd")
     var job_cd: Int? = null

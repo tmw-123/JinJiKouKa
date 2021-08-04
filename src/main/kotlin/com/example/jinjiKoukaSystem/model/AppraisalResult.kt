@@ -373,6 +373,7 @@ class AppraisalResult{
     @Column(name = "approach_attitude2_evaluation_points")
     var approach_attitude2_evaluation_points : Long? = null
 
+
     @Column(name = "approach_attitude2_weight_salary_increase")
     var approach_attitude2_weight_salary_increase : String? = null
 

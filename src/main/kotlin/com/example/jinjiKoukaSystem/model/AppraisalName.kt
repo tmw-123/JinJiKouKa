@@ -10,6 +10,7 @@ class AppraisalName{
     @Column(name = "display_order")
     var display_order: Int? = null
 
+
     @Column(name = "appraisal_name")
     var appraisal_name: String? = null
 
