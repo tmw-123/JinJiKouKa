@@ -5,7 +5,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "p_appraisal_result_db")
 class AppraisalResult{
-
+    @Id
     @Column(name = "register_datetime")
     var register_datetime : String? = null
 

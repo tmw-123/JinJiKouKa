@@ -16,6 +16,7 @@ class Base{
     @Column(name = "approver_id")
     var approver_id: String? = null
 
+
     @Column(name = "password")
     var password1: String? = null
 
