@@ -48,6 +48,7 @@ class AppraisalLogin{
             this.person_in_charge_name = person_in_charge_name
             this.mail_address = mail_address
             this.personal_flg = personal_flg
+
         }
 }
 

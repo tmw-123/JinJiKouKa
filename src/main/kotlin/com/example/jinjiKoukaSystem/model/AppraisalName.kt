@@ -25,6 +25,7 @@ class AppraisalName{
             this.display_order = display_order
             this.appraisal_name = appraisal_name
             this.personal_appraisal_name = personal_appraisal_name
+
         }
 }
 

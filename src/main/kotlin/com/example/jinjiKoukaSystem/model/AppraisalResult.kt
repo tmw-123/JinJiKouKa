@@ -738,6 +738,7 @@ class AppraisalResult{
             this.approach_attitude4_depart_adjust_points  = approach_attitude4_depart_adjust_points
             this.primary_secondary_evaluation_flg  = primary_secondary_evaluation_flg
             this.evaluation_update_flg  = evaluation_update_flg
+
     }
 }
 

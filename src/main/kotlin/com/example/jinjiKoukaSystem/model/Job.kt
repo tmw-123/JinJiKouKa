@@ -21,5 +21,6 @@ class Job{
             this.job_cd = job_cd
             this.officer = officer
         }
+
 }
 

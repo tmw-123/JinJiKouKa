@@ -25,6 +25,7 @@ class Belong{
             this.belong_cd = belong_cd
             this.belong_name = belong_name
             this.display_data_status = display_data_status
+
         }
 }
 
