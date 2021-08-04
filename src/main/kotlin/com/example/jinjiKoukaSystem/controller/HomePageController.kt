@@ -1,12 +1,12 @@
 package com.example.jinjiKoukaSystem.controller
 
+import com.example.jinjiKoukaSystem.model.Grade
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 import com.example.jinjiKoukaSystem.respository.GradeRepository
 import com.example.jinjiKoukaSystem.service.GradeServiceImpl
-import com.example.jinjiKoukaSystem.model.Grade
 
 @Controller
 class HomePageController {
@@ -15,7 +15,7 @@ class HomePageController {
     private val gradeServiceImpl: GradeServiceImpl? = null
 
     @Autowired
-    private val repository: GradeRepository? = null
+    private val gradeRepository: GradeRepository? = null
 
 
     @RequestMapping("/homePage")
@@ -24,7 +24,8 @@ class HomePageController {
     }
 
     @RequestMapping("/gradeRegistration")
-    fun gradeRegistration(model: Model): String {
+    fun gradeRegistration(model: Model, @ModelAttribute grade: Grade): String {
+        model.addAttribute("allGradeLists", gradeRepository?.findAll())
         return "gradeRegistration"
     }
 
