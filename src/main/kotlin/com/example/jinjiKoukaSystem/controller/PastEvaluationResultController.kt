@@ -4,9 +4,8 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 import com.example.jinjiKoukaSystem.model.Grade
-import com.example.jinjiKoukaSystem.respository.GradeRepository
+import com.example.jinjiKoukaSystem.repository.GradeRepository
 import com.example.jinjiKoukaSystem.service.GradeServiceImpl
-import org.hibernate.query.criteria.internal.expression.function.AggregationFunction
 import org.springframework.beans.factory.annotation.Autowired
 
 @Controller

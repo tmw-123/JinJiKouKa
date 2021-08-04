@@ -183,68 +183,68 @@ class Grade{
 
     constructor(
         appraisal_pattern: String?
-                 ,officer: String?
-                 ,grade: String?
-                 ,grade1_item: String?
-                 ,grade1_evaluation_points: String?
-                 ,grade1_weight_salary_increase: String?
-                 ,grade1_weight_bonus: String?
-                 ,grade2_item: String?
-                 ,grade2_evaluation_points: String?
-                 ,grade2_weight_salary_increase: String?
-                 ,grade2_weight_bonus: String?
-                 ,grade3_item: String?
-                 ,grade3_evaluation_points: String?
-                 ,grade3_weight_salary_increase: String?
-                 ,grade3_weight_bonus: String?
-                 ,grade4_item: String?
-                 ,grade4_evaluation_points: String?
-                 ,grade4_weight_salary_increase: String?
-                 ,grade4_weight_bonus: String?
-                 ,grade5_item: String?
-                 ,grade5_evaluation_points: String?
-                 ,grade5_weight_salary_increase: String?
-                 ,grade5_weight_bonus: String?
-                 ,ability1_item: String?
-                 ,ability1_evaluation_points: String?
-                 ,ability1_weight_salary_increase: String?
-                 ,ability1_weight_bonus: String?
-                 ,ability2_item: String?
-                 ,ability2_evaluation_points: String?
-                 ,ability2_weight_salary_increase: String?
-                 ,ability2_weight_bonus: String?
-                 ,ability3_item: String?
-                 ,ability3_evaluation_points: String?
-                 ,ability3_weight_salary_increase: String?
-                 ,ability3_weight_bonus: String?
-                 ,ability4_item: String?
-                 ,ability4_evaluation_points: String?
-                 ,ability4_weight_salary_increase: String?
-                 ,ability4_weight_bonus: String?
-                 ,approach_attitude1_item: String?
-                 ,approach_attitude1_evaluation_points: String?
-                 ,approach_attitude1_weight_salary_increase: String?
-                 ,approach_attitude1_weight_bonus: String?
-                 ,approach_attitude2_item: String?
-                 ,approach_attitude2_evaluation_points: String?
-                 ,approach_attitude2_weight_salary_increase: String?
-                 ,approach_attitude2_weight_bonus: String?
-                 ,approach_attitude3_item: String?
-                 ,approach_attitude3_evaluation_points: String?
-                 ,approach_attitude3_weight_salary_increase: String?
-                 ,approach_attitude3_weight_bonus: String?
-                 ,approach_attitude4_item: String?
-                 ,approach_attitude4_evaluation_points: String?
-                 ,approach_attitude4_weight_salary_increase: String?
-                 ,approach_attitude4_weight_bonus: String? ): super() {
+        ,officer: String?
+        ,grade: String?
+        ,grade1_item: String?
+        ,grade1_evaluation_points: String?
+        ,grade1_weight_salary_increase: String?
+        ,grade1_weight_bonus: String?
+        ,grade2_item: String?
+        ,grade2_evaluation_points: String?
+        ,grade2_weight_salary_increase: String?
+        ,grade2_weight_bonus: String?
+        ,grade3_item: String?
+        ,grade3_evaluation_points: String?
+        ,grade3_weight_salary_increase: String?
+        ,grade3_weight_bonus: String?
+        ,grade4_item: String?
+        ,grade4_evaluation_points: String?
+        ,grade4_weight_salary_increase: String?
+        ,grade4_weight_bonus: String?
+        ,grade5_item: String?
+        ,grade5_evaluation_points: String?
+        ,grade5_weight_salary_increase: String?
+        ,grade5_weight_bonus: String?
+        ,ability1_item: String?
+        ,ability1_evaluation_points: String?
+        ,ability1_weight_salary_increase: String?
+        ,ability1_weight_bonus: String?
+        ,ability2_item: String?
+        ,ability2_evaluation_points: String?
+        ,ability2_weight_salary_increase: String?
+        ,ability2_weight_bonus: String?
+        ,ability3_item: String?
+        ,ability3_evaluation_points: String?
+        ,ability3_weight_salary_increase: String?
+        ,ability3_weight_bonus: String?
+        ,ability4_item: String?
+        ,ability4_evaluation_points: String?
+        ,ability4_weight_salary_increase: String?
+        ,ability4_weight_bonus: String?
+        ,approach_attitude1_item: String?
+        ,approach_attitude1_evaluation_points: String?
+        ,approach_attitude1_weight_salary_increase: String?
+        ,approach_attitude1_weight_bonus: String?
+        ,approach_attitude2_item: String?
+        ,approach_attitude2_evaluation_points: String?
+        ,approach_attitude2_weight_salary_increase: String?
+        ,approach_attitude2_weight_bonus: String?
+        ,approach_attitude3_item: String?
+        ,approach_attitude3_evaluation_points: String?
+        ,approach_attitude3_weight_salary_increase: String?
+        ,approach_attitude3_weight_bonus: String?
+        ,approach_attitude4_item: String?
+        ,approach_attitude4_evaluation_points: String?
+        ,approach_attitude4_weight_salary_increase: String?
+        ,approach_attitude4_weight_bonus: String? ): super() {
 
-            this.appraisal_pattern =appraisal_pattern
-            this.officer = officer
-            this.grade = grade
-            this.grade1_item = grade1_item
-            this.grade1_evaluation_points = grade1_evaluation_points
-            this.grade1_weight_salary_increase = grade1_weight_salary_increase
-            this.grade1_weight_bonus = grade1_weight_bonus
+        this.appraisal_pattern =appraisal_pattern
+        this.officer = officer
+        this.grade = grade
+        this.grade1_item = grade1_item
+        this.grade1_evaluation_points = grade1_evaluation_points
+        this.grade1_weight_salary_increase = grade1_weight_salary_increase
+        this.grade1_weight_bonus = grade1_weight_bonus
         this.grade2_item = grade2_item
         this.grade2_evaluation_points  = grade2_evaluation_points
         this.grade2_weight_salary_increase = grade2_weight_salary_increase
@@ -293,7 +293,4 @@ class Grade{
         this.approach_attitude4_evaluation_points = approach_attitude4_evaluation_points
         this.approach_attitude4_weight_salary_increase = approach_attitude4_weight_salary_increase
         this.approach_attitude4_weight_bonus = approach_attitude4_weight_bonus }
-
-
 }
-

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <title>Approver Setting</title>
+    <style>
+
+.txtbox {
+	width: 170px;
+	height: 34px;
+	padding: 8px 20px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+.combo {
+	width: 170px;
+	height: 34px;
+	padding: 8px 10px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+.label {
+display: inline-block;
+background-color: #a2e0da;
+color: black;
+font-size:14px;
+width:110px;
+height:20px;
+text-align:left;
+padding:10px 4px 2px 4px;
+margin-left:300px;
+}
+
+.chk {
+	display: block;
+	position: relative;
+	margin-left: 400px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#btn_reg{
+width:100px;
+padding:10px;
+border:none;
+background:#5cbf96;
+border-radius:5px;
+margin:10px;
+text-align:center;
+font-size:16px;
+}
+#btn_reg:hover {
+background-color: #555;
+color: white;
+}
+
+
+#btn_delete{
+width:100px;
+padding:10px;
+border:none;
+background:red;
+border-radius:5px;
+margin:10px;
+text-align:center;
+font-size:16px;
+}
+#btn_delete:hover {
+background-color: #555;
+color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
+th {
+    background: #4c6491;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+}
+tr:nth-child(odd){
+  background-color: #c1e4f7;
+  color: #0a0a0a;
+}
+
+.zui-table {
+    border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+    background-color: #DDEFEF;
+    border: none;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-table tbody td {
+    border-bottom: solid 1px #DDEFEF;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-wrapper {
+    position: relative;
+    border:solid;
+    border-color:gray;
+    margin-right:120px;
+}
+
+.zui-scroller {
+    margin-left: 141px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 5px;
+    width: 87%;
+}
+
+.zui-table .zui-sticky-col {
+    border-left: solid 1px #DDEFEF;
+    border-right: solid 1px #DDEFEF;
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 120px;
+    text-align:center;
+}
+</style>
+
+</head>
+<body>
+<div>
+    <h2 style="margin-left: 600px;font-family: Arial, sans-serif;font-size: 25px;height:25px;">承認者設定</h2>
+    <hr style="width:90%;margin-left:70px;border-top: 1px dashed red;"><br>
+</div>
+<div style="margin-left: 70px;">
+    <form th:action="@{/fileChoose}" method="post">
+        <label style="margin-left:50px;">承認者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="shouninshaID" id="shouninshaID" class="txtbox" style="margin-left:50px;">
+        <label style="margin-left:90px;">自己評価フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikoflg" id="jikoflg" class="txtbox" style="margin-left:50px;">
+        <br><br>
+
+        <label style="margin-left:50px;">パスワード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="password" id="password" class="txtbox" style="margin-left:36px;">
+        <label style="margin-left:90px;">自己評価ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikorank" id="jikorank" class="txtbox" style="margin-left:50px;">
+        <label style="margin-left:90px;">自己評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikototalmark" id="jikototalmark" class="txtbox" style="margin-left:50px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">社員番号</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="empCD" id="empCD" class="txtbox" style="margin-left:52px;">
+        <label style="margin-left:90px;">自己評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikorankbonus" id="jikorankbonus" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">自己評価合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikoTotalMarkBonus" id="jikoTotalMarkBonus" class="txtbox" style="margin-left:20px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">メールアドレス</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="mail" id="mail" class="txtbox" style="margin-left:5px;">
+        <label style="margin-left:90px;">部門調整ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departrank" id="departrank" class="txtbox" style="margin-left:50px;">
+        <label style="margin-left:90px;">部門調整合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departtotalmark" id="departtotalmark" class="txtbox" style="margin-left:50px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">所属コード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="ComboBox" id="shozokuCd" class="combo" style="margin-left:35px;">
+            <option>xxxxxx</option>
+            <option>yyyyyy</option>
+        </select>
+        <label style="margin-left:90px;">部門調整ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departbonus" id="departbonus" class="txtbox" style="margin-left:19px;">
+        <label style="margin-left:90px;">部門調整合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departtotalbonus" id="departtotalbonus" class="txtbox" style="margin-left:20px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">所属</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="shozoku" id="shozoku" class="txtbox" style="margin-left:82px;">
+        <label style="margin-left:90px;">一次評価ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstRank" id="firstRank" class="txtbox" style="margin-left:51px;">
+        <label style="margin-left:90px;">一次評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstTotalMark" id="firstTotalMark" class="txtbox" style="margin-left:51px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">管理者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" value="1" style="margin-left: 20px;">
+        <label style="margin-left:245px;">一次評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstRankBonus" id="firstRankBonus" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">一次評価合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstRankTotalBonus" id="firstRankTotalBonus" class="txtbox" style="margin-left:20px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">職制コード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="ComboBox" id="shokuseiCd" class="combo" style="margin-left:35px;">
+            <option>xxxxxx</option>
+            <option>yyyyyy</option>
+        </select>
+        <label style="margin-left:90px;">一次評価合者</label>
+        <label>記入欄</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstEntry" id="firstEntry" class="txtbox" style="margin-left:15px;height:100px;">
+        <label style="margin-left:90px;">考課権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="appraisalAutho" id="appraisalAutho" class="txtbox" style="margin-left:115px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">役職</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="yakushoku" id="yakushoku" class="txtbox" style="margin-left:82px;">
+        <label style="margin-left:90px;">二次評価ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secondRank" id="secondRank" class="txtbox" style="margin-left:50px;">
+        <label style="margin-left:90px;">二次評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secondTotalMark" id="secondTotalMark" class="txtbox" style="margin-left:52px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="grade" id="grade" class="txtbox" style="margin-left:82px;">
+        <label style="margin-left:90px;">二次評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secRankBonus" id="secRankBonus" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">二次評価合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secRankTotalBonus" id="secRankTotalBonus" class="txtbox" style="margin-left:20px;">
+        <br><br>
+
+
+        <label style="margin-left:50px;">氏名</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="name" id="name" class="txtbox" style="margin-left:82px;">
+        <label style="margin-left:90px;">二次評価合者</label>
+        <label>記入欄</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secEntry" id="secEntry" class="txtbox" style="margin-left:15px;height:100px;">
+        <label style="margin-left:90px;">システム作成権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="sysCrateAutho" id="sysCrateAutho" class="txtbox" style="margin-left:52px;">
+        <br><br>
+
+        <label style="margin-left:50px;">評価状況<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ステータス</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="ComboBox" id="sts" class="combo" style="margin-left:37px;">
+            <option>1:人事部</option>
+            <option>2:その他</option>
+        </select>
+        <label style="margin-left:90px;">二次評価合者</label>
+        <label>記入日</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secEntryDate" id="secEntryDate" class="txtbox" style="margin-left:15px;">
+        <label style="margin-left:90px;">生年月日</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="birthdate" id="birthdate" class="txtbox" style="margin-left:115px;">
+        <br><br>
+
+        <label style="margin-left:50px;">自己評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="jikoID" id="jikoID" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">入社年月日</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="comEntryDate" id="comEntryDate" class="txtbox" style="margin-left:82px;">
+        <label style="margin-left:90px;">削除区分</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="delete" id="delete" class="txtbox" style="margin-left:115px;">
+        <br><br>
+
+        <label style="margin-left:50px;">一次評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstID" id="firstID" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">一次考課権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="firstAutho" id="firstAutho" class="txtbox" style="margin-left:67px;">
+        <label style="margin-left:90px;">二次考課権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secAutho" id="secAutho" class="txtbox" style="margin-left:82px;">
+        <br><br>
+
+        <label style="margin-left:50px;">二次評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="secondID" id="secondID" class="txtbox" style="margin-left:18px;">
+        <label style="margin-left:90px;">勤続期間(年)</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="servicePeriod(year)" id="servicePeriod(year)" class="txtbox" style="margin-left:73px;">
+        <label style="margin-left:90px;">勤続期間(月)</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="servicePeriod(month)" id="servicePeriod(month)" class="txtbox" style="margin-left:87px;">
+        <br><br>
+
+        <label style="margin-left:50px;">一次二次評価者ID</label>
+        <input type="text" name="firstsecondID" id="firstsecondID" class="txtbox" style="margin-left:2px;">
+        <label style="margin-left:90px;">退職者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" value="1" style="margin-left: 20px;">
+        <br><br>
+
+        <label style="margin-left:50px;">部門調整ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="departID" id="departID" class="txtbox" style="margin-left:34px;"><br><br>
+    </form>
+
+    <input type="button" value="登録" name="btn_reg" id="btn_reg" style="margin-left:35%">
+    <input type="button" value="削除" name="btn_delete" id="btn_delete">
+    <br>
+    <br>
+</div>
+
+<div class="zui-wrapper" style="margin-left:120px;">
+    <div class="zui-scroller">
+        <table class="zui-table">
+            <thead>
+            <tr>
+                <th class="zui-sticky-col">アクション</th>
+                <th>承認者ID</th>
+                <th>パスワード</th>
+                <th>社員番号</th>
+                <th>メールアドレス</th>
+                <th>所属コード</th>
+                <th>所属</th>
+                <th>管理者フラグ</th>
+                <th>職制コード</th>
+                <th>役職</th>
+                <th>等級</th>
+                <th>氏名</th>
+                <th>評価状況ステータス</th>
+                <th>自己評価者ID</th>
+                <th>一次評価者ID</th>
+                <th>二次己評価者ID</th>
+                <th>一次二次己評価者ID</th>
+                <th>部門調整ID</th>
+                <th>自己評価フラグ</th>
+                <th>自己評価ランク</th>
+                <th>自己評価合計点数</th>
+                <th>自己評価ランク賞与</th>
+                <th>自己評価合計点数賞与</th>
+                <th>部門調整ランク</th>
+                <th>部門調整合計点数</th>
+                <th>部門調整ランク賞与</th>
+                <th>部門調整合計点数賞与</th>
+                <th>一次評価ランク</th>
+                <th>一次評価合計点数</th>
+                <th>一次評価ランク賞与</th>
+                <th>一次評価合計点数賞与</th>
+                <th>一次評価合者 記入欄</th>
+                <th>考課権限</th>
+                <th>二次評価ランク</th>
+                <th>二次評価合計点数</th>
+                <th>二次評価ランク賞与</th>
+                <th>二次評価合計点数賞与</th>
+                <th>二次評価合者 記入欄</th>
+                <th>システム作成権限)</th>
+                <th>二次評価合者 記入日</th>
+                <th>生年月日</th>
+                <th>入社年月日</th>
+                <th>削除区分</th>
+                <th>一次考課権限</th>
+                <th>二次考課権限</th>
+                <th>勤続期間(年)</th>
+                <th>勤続期間(月)</th>
+                <th>退職者フラグ</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
