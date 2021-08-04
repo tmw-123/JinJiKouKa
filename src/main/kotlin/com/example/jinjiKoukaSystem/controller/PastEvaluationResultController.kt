@@ -24,7 +24,18 @@ class PastEvaluationResultController {
         val grade: List<Grade?>? = gradeServiceImpl?.patternSearch() as List<Grade?>?
         val appraisalResult: List<AppraisalResult?>? =
             appraisalResultServiceImpl?.appraisalResult() as List<AppraisalResult?>?
+        model.addAttribute("grade", grade)
         model.addAttribute("appraisalResult", appraisalResult)
+
+        return "pastEvaluation"
+    }
+
+    @RequestMapping("/searchGrade")
+    fun appraisalSearch(model: Model): String {
+        val appraisalResult: List<AppraisalResult?>? =
+            appraisalResultServiceImpl?.appraisalResult() as List<AppraisalResult?>?
+        model.addAttribute("appraisalResult", appraisalResult)
+
         return "pastEvaluation"
     }
 

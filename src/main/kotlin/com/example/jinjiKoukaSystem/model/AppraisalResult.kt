@@ -5,7 +5,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "p_appraisal_result_db")
 class AppraisalResult{
-    @Id
+
     @Column(name = "register_datetime")
     var register_datetime : String? = null
 
@@ -91,7 +91,7 @@ class AppraisalResult{
     var primary_evaluation_total_score_bonus : Long? = null
 
     @Column(name = "primary_evaluator_entry_field")
-    var primary_evaluator_entry_field : Long? = null
+    var primary_evaluator_entry_field : String? = null
 
     @Column(name = "primary_evaluator_entry_date")
     var primary_evaluator_entry_date : String? = null
@@ -109,7 +109,7 @@ class AppraisalResult{
     var secondary_evaluation_total_score_bonus : Long? = null
 
     @Column(name = "secondary_evaluator_entry_field")
-    var secondary_evaluator_entry_field : Long? = null
+    var secondary_evaluator_entry_field : String? = null
 
     @Column(name = "secondary_evaluator_entry_date")
     var secondary_evaluator_entry_date : String? = null
@@ -130,7 +130,7 @@ class AppraisalResult{
     var grade1_item : String? = null
 
     @Column(name = "grade1_evaluation_points")
-    var grade1_evaluation_points : Long? = null
+    var grade1_evaluation_points : String? = null
 
     @Column(name = "grade1_weight_salary_increase")
     var grade1_weight_salary_increase : String? = null
@@ -154,7 +154,7 @@ class AppraisalResult{
     var grade2_item : String? = null
 
     @Column(name = "grade2_evaluation_points")
-    var grade2_evaluation_points : Long? = null
+    var grade2_evaluation_points : String? = null
 
     @Column(name = "grade2_weight_salary_increase")
     var grade2_weight_salary_increase : String? = null
@@ -178,7 +178,7 @@ class AppraisalResult{
     var grade3_item : String? = null
 
     @Column(name = "grade3_evaluation_points")
-    var grade3_evaluation_points : Long? = null
+    var grade3_evaluation_points : String? = null
 
     @Column(name = "grade3_weight_salary_increase")
     var grade3_weight_salary_increase : String? = null
@@ -202,7 +202,7 @@ class AppraisalResult{
     var grade4_item : String? = null
 
     @Column(name = "grade4_evaluation_points")
-    var grade4_evaluation_points : Long? = null
+    var grade4_evaluation_points : String? = null
 
     @Column(name = "grade4_weight_salary_increase")
     var grade4_weight_salary_increase : String? = null
@@ -226,13 +226,13 @@ class AppraisalResult{
     var grade5_item : String? = null
 
     @Column(name = "grade5_evaluation_points")
-    var grade5_evaluation_points : Long? = null
+    var grade5_evaluation_points : String? = null
 
     @Column(name = "grade5_weight_salary_increase")
     var grade5_weight_salary_increase : String? = null
 
     @Column(name = "grade5_weight_bonus")
-    var grade5_weight_bonus : Long? = null
+    var grade5_weight_bonus : String? = null
 
     @Column(name = "grade5_self_evaluation_points")
     var grade5_self_evaluation_points : String? = null
@@ -251,7 +251,7 @@ class AppraisalResult{
     var ability1_item : String? = null
 
     @Column(name = "ability1_evaluation_points")
-    var ability1_evaluation_points : Long? = null
+    var ability1_evaluation_points : String? = null
 
     @Column(name = "ability1_weight_salary_increase")
     var ability1_weight_salary_increase : String? = null
@@ -275,7 +275,7 @@ class AppraisalResult{
     var ability2_item : String? = null
 
     @Column(name = "ability2_evaluation_points")
-    var ability2_evaluation_points : Long? = null
+    var ability2_evaluation_points : String? = null
 
     @Column(name = "ability2_weight_salary_increase")
     var ability2_weight_salary_increase : String? = null
@@ -299,7 +299,7 @@ class AppraisalResult{
     var ability3_item : String? = null
 
     @Column(name = "ability3_evaluation_points")
-    var ability3_evaluation_points : Long? = null
+    var ability3_evaluation_points : String? = null
 
     @Column(name = "ability3_weight_salary_increase")
     var ability3_weight_salary_increase : String? = null
@@ -323,7 +323,7 @@ class AppraisalResult{
     var ability4_item : String? = null
 
     @Column(name = "ability4_evaluation_points")
-    var ability4_evaluation_points : Long? = null
+    var ability4_evaluation_points : String? = null
 
     @Column(name = "ability4_weight_salary_increase")
     var ability4_weight_salary_increase : String? = null
@@ -347,7 +347,7 @@ class AppraisalResult{
     var approach_attitude1_item : String? = null
 
     @Column(name = "approach_attitude1_evaluation_points")
-    var approach_attitude1_evaluation_points : Long? = null
+    var approach_attitude1_evaluation_points : String? = null
 
     @Column(name = "approach_attitude1_weight_salary_increase")
     var approach_attitude1_weight_salary_increase : String? = null
@@ -371,7 +371,7 @@ class AppraisalResult{
     var approach_attitude2_item : String? = null
 
     @Column(name = "approach_attitude2_evaluation_points")
-    var approach_attitude2_evaluation_points : Long? = null
+    var approach_attitude2_evaluation_points : String? = null
 
 
     @Column(name = "approach_attitude2_weight_salary_increase")
@@ -396,7 +396,7 @@ class AppraisalResult{
     var approach_attitude3_item : String? = null
 
     @Column(name = "approach_attitude3_evaluation_points")
-    var approach_attitude3_evaluation_points : Long? = null
+    var approach_attitude3_evaluation_points : String? = null
 
     @Column(name = "approach_attitude3_weight_salary_increase")
     var approach_attitude3_weight_salary_increase : String? = null
@@ -420,7 +420,7 @@ class AppraisalResult{
     var approach_attitude4_item : String? = null
 
     @Column(name = "approach_attitude4_evaluation_points")
-    var approach_attitude4_evaluation_points : Long? = null
+    var approach_attitude4_evaluation_points : String? = null
 
     @Column(name = "approach_attitude4_weight_salary_increase")
     var approach_attitude4_weight_salary_increase : String? = null
@@ -445,6 +445,10 @@ class AppraisalResult{
 
     @Column(name = "evaluation_update_flg")
     var evaluation_update_flg : String? = null
+
+    @Id
+    @Column(name = "id")
+    var id : Long? = null
 
     constructor(
         register_datetime : String? = null
@@ -475,20 +479,20 @@ class AppraisalResult{
         ,primary_evaluation_total_score : Long? = null
         ,primary_evaluation_rank_bonus : String? = null
         ,primary_evaluation_total_score_bonus : Long? = null
-        ,primary_evaluator_entry_field : Long? = null
+        ,primary_evaluator_entry_field : String? = null
         ,primary_evaluator_entry_date : String? = null
     ,secondary_evaluation_rank : String? = null
     ,secondary_evaluation_total_score : Long? = null
     ,secondary_evaluation_rank_bonus : String? = null
     ,secondary_evaluation_total_score_bonus : Long? = null
-    ,secondary_evaluator_entry_field : Long? = null
+    ,secondary_evaluator_entry_field : String? = null
     ,secondary_evaluator_entry_date : String? = null
     ,depart_adjust_rank : String? = null
     ,depart_adjust_total_score : Long? = null
     ,depart_adjust_rank_bonus : String? = null
     ,depart_adjust_total_score_bonus : Long? = null
     ,grade1_item : String? = null
-    ,grade1_evaluation_points : Long? = null
+    ,grade1_evaluation_points : String? = null
     ,grade1_weight_salary_increase : String? = null
     ,grade1_weight_bonus : String? = null
     ,grade1_self_evaluation_points : String? = null
@@ -496,7 +500,7 @@ class AppraisalResult{
     ,grade1_secondary_evaluation_points : String? = null
     ,grade1_depart_adjust_points : String? = null
     ,grade2_item : String? = null
-    ,grade2_evaluation_points : Long? = null
+    ,grade2_evaluation_points : String? = null
     ,grade2_weight_salary_increase : String? = null
     ,grade2_weight_bonus : String? = null
     ,grade2_self_evaluation_points : String? = null
@@ -504,7 +508,7 @@ class AppraisalResult{
     ,grade2_secondary_evaluation_points : String? = null
     ,grade2_depart_adjust_points : String? = null
     ,grade3_item : String? = null
-    ,grade3_evaluation_points : Long? = null
+    ,grade3_evaluation_points : String? = null
     ,grade3_weight_salary_increase : String? = null
     ,grade3_weight_bonus : String? = null
     ,grade3_self_evaluation_points : String? = null
@@ -512,7 +516,7 @@ class AppraisalResult{
     ,grade3_secondary_evaluation_points : String? = null
     ,grade3_depart_adjust_points : String? = null
     ,grade4_item : String? = null
-    ,grade4_evaluation_points : Long? = null
+    ,grade4_evaluation_points : String? = null
     ,grade4_weight_salary_increase : String? = null
     ,grade4_weight_bonus : String? = null
     ,grade4_self_evaluation_points : String? = null
@@ -520,15 +524,15 @@ class AppraisalResult{
     ,grade4_secondary_evaluation_points : String? = null
     ,grade4_depart_adjust_points : String? = null
     ,grade5_item : String? = null
-    ,grade5_evaluation_points : Long? = null
+    ,grade5_evaluation_points : String? = null
     ,grade5_weight_salary_increase : String? = null
-    ,grade5_weight_bonus : Long? = null
+    ,grade5_weight_bonus : String? = null
     ,grade5_self_evaluation_points : String? = null
     ,grade5_primary_evaluation_points : String? = null
     ,grade5_secondary_evaluation_points : String? = null
     ,grade5_depart_adjust_points : String? = null
     ,ability1_item : String? = null
-    ,ability1_evaluation_points : Long? = null
+    ,ability1_evaluation_points : String? = null
     ,ability1_weight_salary_increase : String? = null
     ,ability1_weight_bonus : String? = null
     ,ability1_self_evaluation_points : String? = null
@@ -536,7 +540,7 @@ class AppraisalResult{
     ,ability1_secondary_evaluation_points : String? = null
     ,ability1_depart_adjust_points : String? = null
     ,ability2_item : String? = null
-    ,ability2_evaluation_points : Long? = null
+    ,ability2_evaluation_points : String? = null
     ,ability2_weight_salary_increase : String? = null
     ,ability2_weight_bonus : String? = null
     ,ability2_self_evaluation_points : String? = null
@@ -544,7 +548,7 @@ class AppraisalResult{
     ,ability2_secondary_evaluation_points : String? = null
     ,ability2_depart_adjust_points : String? = null
     ,ability3_item : String? = null
-    ,ability3_evaluation_points : Long? = null
+    ,ability3_evaluation_points : String? = null
     ,ability3_weight_salary_increase : String? = null
     ,ability3_weight_bonus : String? = null
     ,ability3_self_evaluation_points : String? = null
@@ -552,7 +556,7 @@ class AppraisalResult{
     ,ability3_secondary_evaluation_points : String? = null
     ,ability3_depart_adjust_points : String? = null
     ,ability4_item : String? = null
-    ,ability4_evaluation_points : Long? = null
+    ,ability4_evaluation_points : String? = null
     ,ability4_weight_salary_increase : String? = null
     ,ability4_weight_bonus : String? = null
     ,ability4_self_evaluation_points : String? = null
@@ -560,7 +564,7 @@ class AppraisalResult{
     ,ability4_secondary_evaluation_points : String? = null
     ,ability4_depart_adjust_points : String? = null
     ,approach_attitude1_item : String? = null
-    ,approach_attitude1_evaluation_points : Long? = null
+    ,approach_attitude1_evaluation_points : String? = null
     ,approach_attitude1_weight_salary_increase : String? = null
     ,approach_attitude1_weight_bonus : String? = null
     ,approach_attitude1_self_evaluation_points : String? = null
@@ -568,7 +572,7 @@ class AppraisalResult{
     ,approach_attitude1_secondary_evaluation_points : String? = null
     ,approach_attitude1_depart_adjust_points : String? = null
     ,approach_attitude2_item : String? = null
-    ,approach_attitude2_evaluation_points : Long? = null
+    ,approach_attitude2_evaluation_points : String? = null
     ,approach_attitude2_weight_salary_increase : String? = null
     ,approach_attitude2_weight_bonus : String? = null
     ,approach_attitude2_self_evaluation_points : String? = null
@@ -576,7 +580,7 @@ class AppraisalResult{
     ,approach_attitude2_secondary_evaluation_points : String? = null
     ,approach_attitude2_depart_adjust_points : String? = null
     ,approach_attitude3_item : String? = null
-    ,approach_attitude3_evaluation_points : Long? = null
+    ,approach_attitude3_evaluation_points : String? = null
     ,approach_attitude3_weight_salary_increase : String? = null
     ,approach_attitude3_weight_bonus : String? = null
     ,approach_attitude3_self_evaluation_points : String? = null
@@ -584,7 +588,7 @@ class AppraisalResult{
     ,approach_attitude3_secondary_evaluation_points : String? = null
     ,approach_attitude3_depart_adjust_points : String? = null
     ,approach_attitude4_item : String? = null
-    ,approach_attitude4_evaluation_points : Long? = null
+    ,approach_attitude4_evaluation_points : String? = null
     ,approach_attitude4_weight_salary_increase : String? = null
     ,approach_attitude4_weight_bonus : String? = null
     ,approach_attitude4_self_evaluation_points : String? = null
@@ -593,6 +597,7 @@ class AppraisalResult{
     ,approach_attitude4_depart_adjust_points : String? = null
     ,primary_secondary_evaluation_flg : String? = null
     ,evaluation_update_flg : String? = null
+        ,id : Long? = null
         ): super() {
         this.register_datetime = register_datetime
             this.update_datetime  = update_datetime
@@ -740,6 +745,7 @@ class AppraisalResult{
             this.approach_attitude4_depart_adjust_points  = approach_attitude4_depart_adjust_points
             this.primary_secondary_evaluation_flg  = primary_secondary_evaluation_flg
             this.evaluation_update_flg  = evaluation_update_flg
+            this.id  = id
 
     }
 }
