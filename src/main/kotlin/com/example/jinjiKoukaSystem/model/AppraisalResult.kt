@@ -424,10 +424,10 @@ class AppraisalResult{
     @Column(name = "approach_attitude4_weight_salary_increase")
     var approach_attitude4_weight_salary_increase : String? = null
 
-    @Column(name = "approach_attitude4_self_evaluation_points")
+    @Column(name = "approach_attitude4_weight_bonus")
     var approach_attitude4_weight_bonus : String? = null
 
-    @Column(name = "")
+    @Column(name = "approach_attitude4_self_evaluation_points")
     var approach_attitude4_self_evaluation_points : String? = null
 
     @Column(name = "approach_attitude4_primary_evaluation_points")
