@@ -1,7 +1,7 @@
 package com.example.jinjiKoukaSystem.service
 
 import com.example.jinjiKoukaSystem.model.Grade
-import com.example.jinjiKoukaSystem.respository.GradeRepository
+import com.example.jinjiKoukaSystem.repository.GradeRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

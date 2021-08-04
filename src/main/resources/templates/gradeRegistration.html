@@ -199,7 +199,7 @@ tr:nth-child(odd){
     <label style="margin-left:50px;">考課パターン</label>&nbsp;&nbsp;&nbsp;
 
     <select th:field="*{appraisal_pattern}" id="source" name="source" data-dependent-selector="#status" class="txtbox" style="margin-left:50px;">
-      <option disabled selected value="Select appraisal pattern">Select appraisal pattern</option>
+      <option disabled selected value="">Select appraisal pattern</option>
       <option data-dependent-opt="UNKNOWN1" value="1.等級">1.等級</option>
       <option data-dependent-opt="UNKNOWN2" value="2.等級">2.等級</option>
       <option data-dependent-opt="UNKNOWN3" value="3.等級">3.等級</option>
@@ -210,14 +210,14 @@ tr:nth-child(odd){
 
     <label style="margin-left:90px;">職制</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <select th:field="*{officer}" class="txtbox" style="margin-left:50px;">
-      <option disabled selected value="Select officer">Select officer</option>
+      <option disabled selected value="">Select officer</option>
       <option value="一般">一般</option>
     </select>
     <br><br>
 
     <label style="margin-left:90px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <select th:field="*{grade}" id="status" name="status" class="txtbox" style="margin-left:50px;">
-      <option disabled selected value="Select grade">Select grade</option>
+      <option disabled selected value="">Select grade</option>
       <option data-from-dependent="UNKNOWN1" value="1">1</option>
       <option data-from-dependent="UNKNOWN2" value="2">2</option>
       <option data-from-dependent="UNKNOWN3" value="3">3</option>

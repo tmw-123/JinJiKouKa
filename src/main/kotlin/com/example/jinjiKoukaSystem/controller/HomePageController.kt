@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
-import com.example.jinjiKoukaSystem.respository.GradeRepository
+import com.example.jinjiKoukaSystem.repository.GradeRepository
 import com.example.jinjiKoukaSystem.service.GradeServiceImpl
 
 @Controller
