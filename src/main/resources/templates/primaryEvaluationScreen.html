@@ -30,6 +30,7 @@
 </style>
 <body>
 <h1 style="text-align:center">人事考課表</h1>
+<form action="#" th:action="@{/}">
 <table>
   <tr>
     <th style="width:5px; height:30px;">所属</th>
@@ -73,11 +74,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade1_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade1_weight_salary_increase}"></td></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade1_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade1_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;">業務改善</td>
@@ -88,11 +89,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade2_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade2_weight_salary_increase}"></td></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade2_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade2_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;">仕事の管理企画開発</td>
@@ -103,11 +104,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade3_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade3_weight_salary_increase}"></td></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade3_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade3_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;">部下の管理・育成</td>
@@ -118,11 +119,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade4_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade4_weight_salary_increase}"></td></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade4_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade4_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;">上司補佐</td>
@@ -133,11 +134,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade5_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade5_weight_salary_increase}"></td></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade5_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{/grade5_depart_adjust_points}"></td>
   </tr>
   <!------------------------------------    section1 end--------------------------------->
   <tr>
@@ -152,11 +153,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability1_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability1_weight_salary_increase}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability1_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability1_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;">説明力</td>
@@ -167,11 +168,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability2_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability2_weight_salary_increase}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability2_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{ability2_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;"></td>
@@ -206,11 +207,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude1_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude1_weight_salary_increase}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude1_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude1_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;">責任感</td>
@@ -221,11 +222,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude2_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
-    <td style="width:10px;height:5px;text-align:center;"><input type="text"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude2_weight_salary_increase}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude2_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude2_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;">品質意識</td>
@@ -236,11 +237,11 @@
       </ul>
     </td>
     <td style="width:10px;height:5px;text-align:center;">-</td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude3_primary_evaluation_points}"></td>
     <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
-    <td style="width:10px;height:5px;text-align:center;"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude3_weight_salary_increase}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude3_weight_bonus}"></td>
+    <td style="width:10px;height:5px;text-align:center;"><input type="text" th:field="*{approach_attitude3_depart_adjust_points}"></td>
   </tr>
   <tr>
     <td style="width:50px;height:10px;text-align:center;"></td>
@@ -379,11 +380,11 @@
   </thead>
   <tbody>
   <tr>
-    <td style="width:100px;"><textarea style="height:100px; width:600px; margin:7px; resize:none" disabled></textarea></td>
+    <td style="width:100px;"><textarea th:field="*{primary_evaluator_entry_field}" style="height:100px; width:600px; margin:7px; resize:none"></textarea></td>
     <td style="width:100px;"><textarea style="height:100px; width:600px; margin:7px; resize:none" disabled></textarea></td>
   </tr>
   <tr>
-    <td style="width:100px; text-align:center;"><input type="date" style="margin:10px;"></td>
+    <td style="width:100px; text-align:center;"><input th:field="*{primary_evaluator_entry_date}" type="date" style="margin:10px;"></td>
     <td style="width:100px; text-align:center;"><input type="date" style="margin:10px;"></td>
   </tr>
   </tbody>
@@ -398,5 +399,6 @@
     <input type="button" name="button3" value="戻り" style="padding-bottom:2px;">
 
 </div>
+</form>
 </body>
 </html>
