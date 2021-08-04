@@ -162,7 +162,7 @@ tr:nth-child(odd){
     <hr style="width:90%;margin-left:70px;border-top: 1px dashed red;"><br>
 </div>
 <div style="margin-left: 70px;">
-    <form th:action="@{/saveAuthorizerRegistration}" th:object="${authorizer}" method="post">
+    <form action="#" th:action="@{/saveAuthorizerRegistration}" method="post">
         <label style="margin-left:50px;">承認者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" name="shouninshaID" id="shouninshaID" class="txtbox" style="margin-left:50px;">
         <label style="margin-left:90px;">自己評価フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -310,12 +310,11 @@ tr:nth-child(odd){
 
         <label style="margin-left:50px;">部門調整ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" name="departID" id="departID" class="txtbox" style="margin-left:34px;"><br><br>
-    </form>
 
-    <input type="button" value="登録" name="btn_reg" id="btn_reg" style="margin-left:35%">
+    <input type="submit" value="登録" name="btn_reg" id="btn_reg" style="margin-left:35%">
     <input type="button" value="削除" name="btn_delete" id="btn_delete">
-    <br>
-    <br>
+    </form>
+    <br><br>
 </div>
 
 <div class="zui-wrapper" style="margin-left:120px;">
@@ -324,6 +323,7 @@ tr:nth-child(odd){
             <thead>
             <tr>
                 <th class="zui-sticky-col">アクション</th>
+                <th>id</th>
                 <th>承認者ID</th>
                 <th>パスワード</th>
                 <th>社員番号</th>
@@ -374,55 +374,56 @@ tr:nth-child(odd){
             </tr>
             </thead>
             <tbody>
-            <tr th:each="allAuthorizer : ${allAuthorizerList}">
-                <td class="zui-sticky-col"><a href="">修正</a></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
-                <td th:text="${allAuthorizer.}" id=""></td>
+            <tr th:each="allAuthorizer : ${allAuthorizerLists}">
+                <td class="zui-sticky-col">修正</td>
+                <td th:text="${allAuthorizer.id}" id="id"></td>
+                <td th:text="${allAuthorizer.approver_id}" id="approver_id"></td>
+                <td th:text="${allAuthorizer.password1}" id="password1"></td>
+                <td th:text="${allAuthorizer.employee_cd}" id="employee_cd"></td>
+                <td th:text="${allAuthorizer.mail_address}" id="mail_address"></td>
+                <td th:text="${allAuthorizer.belong_cd}" id="belong_cd"></td>
+                <td th:text="${allAuthorizer.belong1}" id="belong1"></td>
+                <td th:text="${allAuthorizer.admin_flg}" id="admin_flg"></td>
+                <td th:text="${allAuthorizer.job_cd}" id="job_cd"></td>
+                <td th:text="${allAuthorizer.officer}" id="officer"></td>
+                <td th:text="${allAuthorizer.grade1}" id="grade1"></td>
+                <td th:text="${allAuthorizer.name1}" id="name1"></td>
+                <td th:text="${allAuthorizer.evaluation_status}" id="evaluation_status"></td>
+                <td th:text="${allAuthorizer.self_evaluation_id}" id="self_evaluation_id"></td>
+                <td th:text="${allAuthorizer.primary_evaluation_id}" id="primary_evaluation_id"></td>
+                <td th:text="${allAuthorizer.secondary_evaluation_id}" id="secondary_evaluation_id"></td>
+                <td th:text="${allAuthorizer.primary_secondary_evaluation_id}" id="primary_secondary_evaluation_id"></td>
+                <td th:text="${allAuthorizer.depart_adjust_id}" id="depart_adjust_id"></td>
+                <td th:text="${allAuthorizer.self_evaluation_flg}" id="self_evaluation_flg"></td>
+                <td th:text="${allAuthorizer.self_evaluation_rank}" id="self_evaluation_rank"></td>
+                <td th:text="${allAuthorizer.self_evaluation_total_score}" id="self_evaluation_total_score"></td>
+                <td th:text="${allAuthorizer.self_evaluation_rank_bonus}" id="self_evaluation_rank_bonus"></td>
+                <td th:text="${allAuthorizer.self_evaluation_total_score_bonus}" id="self_evaluation_total_score_bonus"></td>
+                <td th:text="${allAuthorizer.depart_adjust_rank}" id="depart_adjust_rank"></td>
+                <td th:text="${allAuthorizer.depart_adjust_total_score}" id="depart_adjust_total_score"></td>
+                <td th:text="${allAuthorizer.depart_adjust_rank_bonus}" id="depart_adjust_rank_bonus"></td>
+                <td th:text="${allAuthorizer.depart_adjust_total_score_bonus}" id="depart_adjust_total_score_bonus"></td>
+                <td th:text="${allAuthorizer.primary_evaluation_rank}" id="primary_evaluation_rank"></td>
+                <td th:text="${allAuthorizer.primary_evaluation_total_score}" id="primary_evaluation_total_score"></td>
+                <td th:text="${allAuthorizer.primary_evaluation_rank_bonus}" id="primary_evaluation_rank_bonus"></td>
+                <td th:text="${allAuthorizer.primary_evaluation_total_score_bonus}" id="primary_evaluation_total_score_bonus"></td>
+                <td th:text="${allAuthorizer.primary_evaluator_entry_field}" id="primary_evaluator_entry_field"></td>
+                <td th:text="${allAuthorizer.appraisal_authority}" id="appraisal_authority"></td>
+                <td th:text="${allAuthorizer.secondary_evaluation_rank}" id="secondary_evaluation_rank"></td>
+                <td th:text="${allAuthorizer.secondary_evaluation_total_score}" id="secondary_evaluation_total_score"></td>
+                <td th:text="${allAuthorizer.secondary_evaluation_rank_bonus}" id="secondary_evaluation_rank_bonus"></td>
+                <td th:text="${allAuthorizer.secondary_evaluation_total_score_bonus}" id="secondary_evaluation_total_score_bonus"></td>
+                <td th:text="${allAuthorizer.secondary_evaluator_entry_field}" id="secondary_evaluator_entry_field"></td>
+                <td th:text="${allAuthorizer.system_create_authority}" id="system_create_authority"></td>
+                <td th:text="${allAuthorizer.secondary_evaluator_entry_date}" id="secondary_evaluator_entry_date"></td>
+                <td th:text="${allAuthorizer.birthday}" id="birthday"></td>
+                <td th:text="${allAuthorizer.company_entry_date}" id="company_entry_date"></td>
+                <td th:text="${allAuthorizer.delete_category}" id="delete_category"></td>
+                <td th:text="${allAuthorizer.primary_evaluation_authority}" id="primary_evaluation_authority"></td>
+                <td th:text="${allAuthorizer.secondary_evaluation_authority}" id="secondary_evaluation_authority"></td>
+                <td th:text="${allAuthorizer.service_period_year}" id="service_period_year"></td>
+                <td th:text="${allAuthorizer.service_period_month}" id="service_period_month"></td>
+                <td th:text="${allAuthorizer.retire_flg}" id="retire_flg"></td>
             </tr>
             </tbody>
         </table>

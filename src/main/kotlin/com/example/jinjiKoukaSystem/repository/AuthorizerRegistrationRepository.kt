@@ -1,17 +1,24 @@
 package com.example.jinjiKoukaSystem.repository
 
-import com.example.jinjiKoukaSystem.controller.AuthorizerRegistrationController
+import com.example.jinjiKoukaSystem.model.Base
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
-import com.example.jinjiKoukaSystem.model.Base
 
 @Repository
-interface AuthorizerRegistrationRepository : CrudRepository<AuthorizerRegistrationController, String> {
+interface AuthorizerRegistrationRepository : CrudRepository<Base, String> {
     @Query(
         value = "SELECT * FROM m_base",
         nativeQuery = true
     )
-    fun authorizerData(): List<AuthorizerRegistrationController?>?
-    abstract fun save(newAuthorizerReg: Base)
+    fun allAuthorizerList(): List<Base?>?
+
+/*
+    @Query(
+        value = "SELECT * FROM m_base WHERE approver_id =:approver_id",
+        nativeQuery = true
+    )
+    fun selectAuthorizerEdit(@Param("approver_id") appraisal_pattern: String?): Base
+*/
+
 }
