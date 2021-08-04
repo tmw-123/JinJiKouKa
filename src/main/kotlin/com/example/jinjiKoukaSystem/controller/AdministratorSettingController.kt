@@ -1,5 +1,6 @@
 package com.example.jinjiKoukaSystem.controller
 
+import com.example.jinjiKoukaSystem.model.Grade
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -14,7 +15,7 @@ class AdministratorSettingController {
     private val gradeServiceImpl: GradeServiceImpl? = null
 
     @Autowired
-    private val repository: GradeRepository? = null
+    private val gradeRepository: GradeRepository? = null
 
 
     @RequestMapping("/administratorPage")
@@ -23,7 +24,8 @@ class AdministratorSettingController {
     }
 
     @RequestMapping("/gradeRegistration")
-    fun gradeRegistration(model: Model): String {
+    fun gradeRegistration(model: Model, @ModelAttribute grade: Grade): String {
+        model.addAttribute("allGradeLists", gradeRepository?.findAll())
         return "gradeRegistration"
     }
 

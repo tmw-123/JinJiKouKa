@@ -38,8 +38,6 @@
 	font-size: 15px;
 }
 
-
-
 .chk {
 	display: block;
 	position: relative;
@@ -66,6 +64,7 @@ width: 40%;
 width: 60%;
 }
 
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -73,6 +72,8 @@ width: 60%;
   clear: both;
 }
 
+
+/* button design */
 #btn_reg{
 width:100px;
 padding:10px;
@@ -86,7 +87,6 @@ text-align:center;
 background-color: #555;
 color: white;
 }
-
 
 #btn_delete{
 width:100px;
@@ -104,6 +104,7 @@ color: white;
 
 
 
+/* table design */
 table {
   border-collapse: collapse;
   width: 100%;
@@ -126,10 +127,6 @@ tr:nth-child(odd){
   background-color: #c1e4f7;
   color: #0a0a0a;
 }
-
-
-
-
 
 .zui-table {
     border: none;
@@ -179,34 +176,31 @@ tr:nth-child(odd){
 }
 
 </style>
-
 </head>
-<body>
 
+<body>
 <div>
   <h3 style="margin-left: 550px;font-family: Arial, sans-serif;font-size: 25px;height:25px;">等級毎考課パターン登録</h3>
   <hr style="width:90%;margin-left:70px;padding:1px;border-style: inset;"><br>
 </div>
 <div style="margin-left: 70px;">
-  <form th:action="@{/fileChoose}" method="post">
+
+  <!--in GradeRegistrationController-->
+  <form action="#" th:action="@{/saveGradeRegistration}" th:object="${grade}" method="post">
 
     <label style="margin-left:50px;">考課パターン</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="ComboBox" id="shozokuCd" class="combo" style="margin-left:35px;">
-      <option>xxxxxx</option>
-      <option>yyyyyy</option>
-    </select>
-    <br><br>
+    <select id="shozokuCd" th:field="*{appraisal_pattern}" name="appraisal_pattern" class="combo" style="margin-left:35px;">
+      <option value="xxx">xxxxxx</option>
+      <option value="yyy">yyyyyy</option>
+    </select> <br><br>
     <label style="margin-left:90px;">職制</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;">
+    <input type="text" th:field="*{officer}" name="officer" class="txtbox" style="margin-left:50px;">
     <br><br>
     <label style="margin-left:90px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;">
+    <input type="text" th:field="*{grade}" name="grade" class="txtbox" style="margin-left:50px;"><br><br>
 
-<br><br>
-
-
+    <!--Grade-->
     <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">成績</h5>
-
     <div class="row">
       <div class="column" style="margin-left: 50px;">
         <div class="row">
@@ -217,15 +211,13 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績１(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade1_item}" name="grade1_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade1_evaluation_points}" name="grade1_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade1_weight_salary_increase}" name="grade1_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade1_weight_bonus}" name="grade1_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-
-
 
       <div class="column">
         <div class="row">
@@ -236,17 +228,14 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績2(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade2_item}" name="grade2_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade2_evaluation_points}" name="grade2_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade2_weight_salary_increase}" name="grade2_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade2_weight_bonus}" name="grade2_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-    </div>
-    <br><br>
-
-
+    </div><br><br>
 
     <div class="row">
       <div class="column" style="margin-left: 50px;">
@@ -258,14 +247,13 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績3(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade3_item}" name="grade3_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade3_evaluation_points}" name="grade3_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade3_weight_salary_increase}" name="grade3_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade3_weight_bonus}" name="grade3_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-
 
       <div class="column">
         <div class="row">
@@ -276,16 +264,14 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績4(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade4_item}" name="grade4_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade4_evaluation_points}" name="grade4_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade4_weight_salary_increase}" name="grade4_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade4_weight_bonus}" name="grade4_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-    </div>
-    <br><br>
-
+    </div> <br><br>
 
     <div class="row">
       <div class="column">
@@ -297,30 +283,18 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績5(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade5_item}" name="grade5_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade5_evaluation_points}" name="grade5_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade5_weight_salary_increase}" name="grade5_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{grade5_weight_bonus}" name="grade5_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-    </div>
-    <br><br>
+    </div><br><br>
 
 
-
-
-
-
-
-
-
-
-
-
-
+    <!--ability-->
     <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">能力</h5>
-
     <div class="row">
       <div class="column" style="margin-left: 50px;">
         <div class="row">
@@ -331,15 +305,13 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績１(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability1_item}" name="ability1_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability1_evaluation_points}" name="ability1_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability1_weight_salary_increase}" name="ability1_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability1_weight_bonus}" name="ability1_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-
-
 
       <div class="column">
         <div class="row">
@@ -350,17 +322,14 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績2(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg"  class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability2_item}" name="ability2_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability2_evaluation_points}" name="ability2_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability2_weight_salary_increase}" name="ability2_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability2_weight_bonus}" name="ability2_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-    </div>
-    <br><br>
-
-
+    </div><br><br>
 
     <div class="row">
       <div class="column" style="margin-left: 50px;">
@@ -372,14 +341,13 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績3(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg"  class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability3_item}" name="ability3_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability3_evaluation_points}" name="ability3_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability3_weight_salary_increase}" name="ability3_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability3_weight_bonus}" name="ability3_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-
 
       <div class="column">
         <div class="row">
@@ -390,22 +358,17 @@ tr:nth-child(odd){
             <label style="line-height:34px">成績4(ウェイント賞与)</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability4_item}" name="ability4_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability4_evaluation_points}" name="ability4_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability4_weight_salary_increase}" name="ability4_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{ability4_weight_bonus}" name="ability4_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-    </div>
-    <br><br>
+    </div><br><br>
 
-
-
-
-
+    <!--approach-->
     <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">取組み姿勢</h5>
-
     <div class="row">
       <div class="column" style="margin-left: 50px;">
         <div class="row">
@@ -416,16 +379,13 @@ tr:nth-child(odd){
             <label style="line-height:34px">取組み姿勢1（ウェイト賞与）</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude1_item}" name="approach_attitude1_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude1_evaluation_points}" name="approach_attitude1_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude1_weight_salary_increase}" name="approach_attitude1_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude1_weight_bonus}" name="approach_attitude1_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-
-
-
 
       <div class="column">
         <div class="row">
@@ -436,17 +396,14 @@ tr:nth-child(odd){
             <label style="line-height:34px">取組み姿勢2（ウェイト賞与）</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude2_item}" name="approach_attitude2_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude2_evaluation_points}" name="approach_attitude2_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude2_weight_salary_increase}" name="approach_attitude2_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude2_weight_bonus}" name="approach_attitude2_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-    </div>
-    <br><br>
-
-
+    </div><br><br>
 
     <div class="row">
       <div class="column" style="margin-left: 50px;">
@@ -458,14 +415,13 @@ tr:nth-child(odd){
             <label style="line-height:34px">取組み姿勢3（ウェイト賞与）</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg"  class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude3_item}" name="approach_attitude3_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude3_evaluation_points}" name="approach_attitude3_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude3_weight_salary_increase}" name="approach_attitude3_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude3_weight_bonus}" name="approach_attitude3_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-
 
       <div class="column">
         <div class="row">
@@ -476,26 +432,25 @@ tr:nth-child(odd){
             <label style="line-height:34px">取組み姿勢4（ウェイト賞与）</label>
           </div>
           <div class="column">
-            <input type="text" name="shouninshaID" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
-            <input type="text" name="jikoflg" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude4_item}" name="approach_attitude4_item" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude4_evaluation_points}" name="approach_attitude4_evaluation_points" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude4_weight_salary_increase}" name="approach_attitude4_weight_salary_increase" class="txtbox" style="margin-left:50px;"><br><br>
+            <input type="text" th:field="*{approach_attitude4_weight_bonus}" name="approach_attitude4_weight_bonus" class="txtbox" style="margin-left:50px;"><br><br>
           </div>
         </div>
       </div>
-    </div>
-    <br>
+    </div><br>
 
-
-    <input type="button" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:35%">
+    <!--buttons-->
+    <input type="submit" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:35%">
     <input type="button" value="削除" name="btn_login" id="btn_delete">
 
   </form>
+</div><br><br>
 
-</div>
 
-<br><br>
 
+ <!--Table-->
 <div class="zui-wrapper" style="margin-left:120px;">
   <div class="zui-scroller">
     <table class="zui-table">
@@ -573,593 +528,82 @@ tr:nth-child(odd){
       </thead>
       <tbody>
 
-      <tr>
+      <tr th:each="allGradeList : ${allGradeLists}">
         </a><td class="zui-sticky-col"><a href="">修正</a></td>
-        <td>22</td>
-        <td>PG</td>
-        <td>5'9"</td>
-        <td>02-07-1989</td>
-        <td>$473,604</td>
-        <td>Washington/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-      </tr>
-      <tr>
-        </a><td class="zui-sticky-col"><a href="">修正</a></td>
-        <td>22</td>
-        <td>PG</td>
-        <td>5'9"</td>
-        <td>02-07-1989</td>
-        <td>$473,604</td>
-        <td>Washington/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-      </tr>
-      <tr>
-        </a><td class="zui-sticky-col"><a href="">修正</a></td>
-        <td>22</td>
-        <td>PG</td>
-        <td>5'9"</td>
-        <td>02-07-1989</td>
-        <td>$473,604</td>
-        <td>Washington/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-      </tr>
-      <tr>
-        </a><td class="zui-sticky-col"><a href="">修正</a></td>
-        <td>22</td>
-        <td>PG</td>
-        <td>5'9"</td>
-        <td>02-07-1989</td>
-        <td>$473,604</td>
-        <td>Washington/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-      </tr>
-      <tr>
-        </a><td class="zui-sticky-col"><a href="">修正</a></td>
-        <td>22</td>
-        <td>PG</td>
-        <td>5'9"</td>
-        <td>02-07-1989</td>
-        <td>$473,604</td>
-        <td>Washington/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-      </tr>
-      <tr>
-        </a><td class="zui-sticky-col"><a href="">修正</a></td>
-        <td>22</td>
-        <td>PG</td>
-        <td>5'9"</td>
-        <td>02-07-1989</td>
-        <td>$473,604</td>
-        <td>Washington/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-        <td>08-13-1990</td>
-        <td>$4,917,000</td>
-        <td>Kentucky/USA</td>
-        <td>Kentucky/USA</td>
-      </tr>
+        <td th:text="${allGradeList.appraisal_pattern}" id="appraisal_pattern"></td>
+        <td th:text="${allGradeList.officer}" id="officer"></td>
+        <td th:text="${allGradeList.grade}" id="grade"></td>
 
+        <td th:text="${allGradeList.grade1_item}" id="grade1_item"></td>
+        <td th:text="${allGradeList.grade1_evaluation_points}" id="grade1_evaluation_points"></td>
+        <td th:text="${allGradeList.grade1_weight_salary_increase}" id="grade1_weight_salary_increase"></td>
+        <td th:text="${allGradeList.grade1_weight_bonus}" id="grade1_weight_bonus"></td>
 
+        <td th:text="${allGradeList.grade2_item}" id="grade2_item"></td>
+        <td th:text="${allGradeList.grade2_evaluation_points}" id="grade2_evaluation_points"></td>
+        <td th:text="${allGradeList.grade2_weight_salary_increase}" id="grade2_weight_salary_increase"></td>
+        <td th:text="${allGradeList.grade2_weight_bonus}" id="grade2_weight_bonus"></td>
 
+        <td th:text="${allGradeList.grade3_item}" id="grade3_item"></td>
+        <td th:text="${allGradeList.grade3_evaluation_points}" id="grade3_evaluation_points"></td>
+        <td th:text="${allGradeList.grade3_weight_salary_increase}" id="grade_weight_salary_increase"></td>
+        <td th:text="${allGradeList.grade3_weight_bonus}" id="grade3_weight_bonus"></td>
+
+        <td th:text="${allGradeList.grade4_item}" id="grade4_item"></td>
+        <td th:text="${allGradeList.grade4_evaluation_points}" id="grade4_evaluation_points"></td>
+        <td th:text="${allGradeList.grade4_weight_salary_increase}" id="grade4_weight_salary_increase"></td>
+        <td th:text="${allGradeList.grade4_weight_bonus}" id="grade4_weight_bonus"></td>
+
+        <td th:text="${allGradeList.grade5_item}" id="grade5_item"></td>
+        <td th:text="${allGradeList.grade5_evaluation_points}" id="grade5_evaluation_points"></td>
+        <td th:text="${allGradeList.grade5_weight_salary_increase}" id="grade5_weight_salary_increase"></td>
+        <td th:text="${allGradeList.grade5_weight_bonus}" id="grade5_weight_bonus"></td>
+
+        <td th:text="${allGradeList.ability1_item}" id="ability1_item"></td>
+        <td th:text="${allGradeList.ability1_evaluation_points}" id="ability1_evaluation_points"></td>
+        <td th:text="${allGradeList.ability1_weight_salary_increase}" id="ability1_weight_salary_increase"></td>
+        <td th:text="${allGradeList.ability1_weight_bonus}" id="ability1_weight_bonus"></td>
+
+        <td th:text="${allGradeList.ability2_item}" id="ability2_item"></td>
+        <td th:text="${allGradeList.ability2_evaluation_points}" id="ability2_evaluation_points"></td>
+        <td th:text="${allGradeList.ability2_weight_salary_increase}" id="ability2_weight_salary_increase"></td>
+        <td th:text="${allGradeList.ability2_weight_bonus}" id="ability2_weight_bonus"></td>
+
+        <td th:text="${allGradeList.ability3_item}" id="ability3_item"></td>
+        <td th:text="${allGradeList.ability3_evaluation_points}" id="ability3_evaluation_points"></td>
+        <td th:text="${allGradeList.ability3_weight_salary_increase}" id="ability3_weight_salary_increase"></td>
+        <td th:text="${allGradeList.ability3_weight_bonus}" id="ability3_weight_bonus"></td>
+
+        <td th:text="${allGradeList.ability4_item}" id="ability4_item"></td>
+        <td th:text="${allGradeList.ability4_evaluation_points}" id="ability4_evaluation_points"></td>
+        <td th:text="${allGradeList.ability4_weight_salary_increase}" id="ability4_weight_salary_increase"></td>
+        <td th:text="${allGradeList.ability4_weight_bonus}" id="ability4_weight_bonus"></td>
+
+        <td th:text="${allGradeList.approach_attitude1_item}" id="approach_attitude1_item"></td>
+        <td th:text="${allGradeList.approach_attitude1_evaluation_points}" id="approach_attitude1_evaluation_points"></td>
+        <td th:text="${allGradeList.approach_attitude1_weight_salary_increase}" id="approach_attitude1_weight_salary_increase"></td>
+        <td th:text="${allGradeList.approach_attitude1_weight_bonus}" id="approach_attitude1_weight_bonus"></td>
+
+        <td th:text="${allGradeList.approach_attitude2_item}" id="approach_attitude2_item"></td>
+        <td th:text="${allGradeList.approach_attitude2_evaluation_points}" id="approach_attitude2_evaluation_points"></td>
+        <td th:text="${allGradeList.approach_attitude2_weight_salary_increase}" id="approach_attitude2_weight_salary_increase"></td>
+        <td th:text="${allGradeList.approach_attitude2_weight_bonus}" id="approach_attitude2_weight_bonus"></td>
+
+        <td th:text="${allGradeList.approach_attitude3_item}" id="approach_attitude3_item"></td>
+        <td th:text="${allGradeList.approach_attitude3_evaluation_points}" id="approach_attitude3_evaluation_points"></td>
+        <td th:text="${allGradeList.approach_attitude3_weight_salary_increase}" id="approach_attitude3_weight_salary_increase"></td>
+        <td th:text="${allGradeList.approach_attitude3_weight_bonus}" id="approach_attitude3_weight_bonus"></td>
+
+        <td th:text="${allGradeList.approach_attitude4_item}" id="approach_attitude4_item"></td>
+        <td th:text="${allGradeList.approach_attitude4_evaluation_points}" id="approach_attitude4_evaluation_points"></td>
+        <td th:text="${allGradeList.approach_attitude4_weight_salary_increase}" id="approach_attitude4_weight_salary_increase"></td>
+        <td th:text="${allGradeList.approach_attitude4_weight_bonus}" id="approach_attitude4_weight_bonus"></td>
+
+      </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-<!--<div class="zui-wrapper">
-  <div class="zui-scroller">
-&lt;!&ndash;<div style="overflow-x:auto;overflow-y:auto;margin-left:120px;margin-right:120px;height:300px">&ndash;&gt;
-<table class="zui-table">
-  <thead>
-  <tr style="background: #4c6491;color: #ffffff;border: 1px solid #ccc;text-align: center;font-family: Arial, sans-serif;
-    font-size: 15px;padding: 8px 16px;">
-    <th class="zui-sticky-col">考課パターン</th>
-    <th>職制</th>
-    <th>等級</th>
-    <th>成績１(項目)</th>
-    <th>成績１(評価の着眼点)</th>
-    <th>成績１(ウェイント昇給)</th>
-    <th>成績１(ウェイント賞与)</th>
-
-    <th>成績2(項目)</th>
-    <th>成績2(評価の着眼点)</th>
-    <th>成績2(ウェイント昇給)</th>
-    <th>成績2(ウェイント賞与)</th>
-
-    <th>成績3(項目)</th>
-    <th>成績3(評価の着眼点)</th>
-    <th>成績3(ウェイント昇給)</th>
-    <th>成績3(ウェイント賞与)</th>
-
-    <th>成績4(項目)</th>
-    <th>成績4(評価の着眼点)</th>
-    <th>成績4(ウェイント昇給)</th>
-    <th>成績4(ウェイント賞与)</th>
-
-    <th>成績5(項目)</th>
-    <th>成績5(評価の着眼点)</th>
-    <th>成績5(ウェイント昇給)</th>
-    <th>成績5(ウェイント賞与)</th>
-  </tr>
-  </thead>
-
-
-  <tbody>
-
-  <tr class="zui-sticky-col">
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-  </tr>
-
-  <tr class="zui-sticky-col">
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-  </tr>
-
-  <tr class="zui-sticky-col">
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-  </tr>
-
-  <tr class="zui-sticky-col">
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-  </tr>
-
-  <tr class="zui-sticky-col">
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-  </tr>
-  <tr class="zui-sticky-col">
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-    <td>Testing Data</td>
-  </tr>
-
-
-
-</table>
-</div>
-</div>-->
-
 
 </body>
 </html>
