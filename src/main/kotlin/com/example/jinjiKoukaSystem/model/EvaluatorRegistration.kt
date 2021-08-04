@@ -6,6 +6,7 @@ import javax.persistence.*
 @Table(name = "evaluator_registration")
 class EvaluatorRegistration{
 
+    @Id
     @Column(name = "employee_cd")
     var employee_cd : String? = null
 
@@ -27,10 +28,10 @@ class EvaluatorRegistration{
     @Column(name = "approver2_officer")
     var approver2_officer : String? = null
 
-    @Column(name = "approver2_name")
+    @Column(name = "approver2_grade")
     var approver2_grade : Int? = null
 
-    @Column(name = "")
+    @Column(name = "approver2_name")
     var  approver2_name : String? = null
 
     @Column(name = "approver3_id")

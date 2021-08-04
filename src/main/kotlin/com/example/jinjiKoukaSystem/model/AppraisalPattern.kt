@@ -34,10 +34,10 @@ class AppraisalPattern{
     @Column(name = "grade2_evaluation_points")
     var grade2_evaluation_points : String? = null
 
-    @Column(name = "")
+    @Column(name = "grade2_weight_salary_increase")
     var grade2_weight_salary_increase : String? = null
 
-    @Column(name = "grade2_weight_salary_increase")
+    @Column(name = "grade2_weight_bonus")
     var grade2_weight_bonus : String? = null
 
     @Column(name = "grade3_item")

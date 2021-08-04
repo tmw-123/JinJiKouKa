@@ -15,6 +15,7 @@ class AppraisalLogin{
     @Column(name = "double_flg")
     var double_flg : String? = null
 
+    @Id
     @Column(name = "evaluator_id")
     var evaluator_id : String? = null
 
