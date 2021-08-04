@@ -162,7 +162,7 @@ tr:nth-child(odd){
     <hr style="width:90%;margin-left:70px;border-top: 1px dashed red;"><br>
 </div>
 <div style="margin-left: 70px;">
-    <form th:action="@{/fileChoose}" method="post">
+    <form th:action="@{/saveAuthorizerRegistration}" th:object="${authorizer}" method="post">
         <label style="margin-left:50px;">承認者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" name="shouninshaID" id="shouninshaID" class="txtbox" style="margin-left:50px;">
         <label style="margin-left:90px;">自己評価フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -374,7 +374,56 @@ tr:nth-child(odd){
             </tr>
             </thead>
             <tbody>
-
+            <tr th:each="allAuthorizer : ${allAuthorizerList}">
+                <td class="zui-sticky-col"><a href="">修正</a></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+                <td th:text="${allAuthorizer.}" id=""></td>
+            </tr>
             </tbody>
         </table>
     </div>

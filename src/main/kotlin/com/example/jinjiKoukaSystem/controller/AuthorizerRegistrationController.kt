@@ -15,7 +15,7 @@ class AuthorizerRegistrationController {
     @Autowired
     private val authorizerRepository: AuthorizerRegistrationRepository? = null
 
-    /*save all grade data in table*/
+    /*save all authorizer data in table*/
     @RequestMapping("/saveAuthorizerRegistration")
     fun saveAuthorizerRegistration(model: Model, @ModelAttribute authoReg: Base): String? {
         val newAuthorizerReg = Base(authoReg.register_datetime,authoReg.update_datetime,authoReg.approver_id,authoReg.password1,authoReg.employee_cd,authoReg.mail_address,authoReg.personal_flg,authoReg.illegal_address_flg,authoReg.mobile_domain_flg,authoReg.double_flg,
