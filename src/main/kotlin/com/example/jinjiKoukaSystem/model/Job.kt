@@ -13,6 +13,7 @@ class Job{
     @Column(name = "officer")
     var officer: String? = null
 
+
     constructor(
         job_cd : Int?
         ,officer : String?

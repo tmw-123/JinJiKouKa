@@ -237,6 +237,7 @@ class AppraisalResult{
     @Column(name = "grade5_self_evaluation_points")
     var grade5_self_evaluation_points : String? = null
 
+
     @Column(name = "grade5_primary_evaluation_points")
     var grade5_primary_evaluation_points : String? = null
 

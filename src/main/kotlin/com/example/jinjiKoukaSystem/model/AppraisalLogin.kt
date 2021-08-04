@@ -49,6 +49,7 @@ class AppraisalLogin{
             this.mail_address = mail_address
             this.personal_flg = personal_flg
 
+
         }
 }
 

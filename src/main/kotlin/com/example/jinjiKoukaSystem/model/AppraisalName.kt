@@ -26,6 +26,7 @@ class AppraisalName{
             this.appraisal_name = appraisal_name
             this.personal_appraisal_name = personal_appraisal_name
 
+
         }
 }
 

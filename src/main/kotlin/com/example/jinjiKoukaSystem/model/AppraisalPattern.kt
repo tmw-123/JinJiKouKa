@@ -286,6 +286,7 @@ class AppraisalPattern{
             this.approach_attitude4_weight_salary_increase = approach_attitude4_weight_salary_increase
             this.approach_attitude4_weight_bonus = approach_attitude4_weight_bonus
 
+
         }
 }
 
