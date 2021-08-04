@@ -175,14 +175,6 @@ tr:nth-child(odd){
     width: 120px;
 }
 
-
-[data-from-dependent] {
-  display: none;
-}
-
-[data-from-dependent].display {
-  display: initial;
-}
 </style>
 </head>
 
@@ -194,37 +186,16 @@ tr:nth-child(odd){
 <div style="margin-left: 70px;">
 
   <!--in GradeRegistrationController-->
-  <form action="#" th:action="@{/saveGradeRegistration}" th:object="${grade}" method="post">
+  <form action="#" th:action="@{/updateGrade}" th:object="${editGrade}" method="post">
 
     <label style="margin-left:50px;">考課パターン</label>&nbsp;&nbsp;&nbsp;
-
-    <select th:field="*{appraisal_pattern}" id="source" name="source" data-dependent-selector="#status" class="txtbox" style="margin-left:50px;">
-      <option disabled selected value="Select appraisal pattern">Select appraisal pattern</option>
-      <option data-dependent-opt="UNKNOWN1" value="1.等級">1.等級</option>
-      <option data-dependent-opt="UNKNOWN2" value="2.等級">2.等級</option>
-      <option data-dependent-opt="UNKNOWN3" value="3.等級">3.等級</option>
-      <option data-dependent-opt="UNKNOWN4" value="4.等級">4.等級</option>
-      <option data-dependent-opt="UNKNOWN5" value="5.等級">5.等級</option>
-    </select>
-    <br><br>
+    <input type="text" th:field="*{appraisal_pattern}" name="appraisal_pattern" class="txtbox" style="margin-left:50px;" disabled><br><br>
 
     <label style="margin-left:90px;">職制</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select th:field="*{officer}" class="txtbox" style="margin-left:50px;">
-      <option disabled selected value="Select officer">Select officer</option>
-      <option value="一般">一般</option>
-    </select>
-    <br><br>
+    <input type="text" th:field="*{officer}" name="officer" class="txtbox" style="margin-left:50px;" disabled><br><br>
 
     <label style="margin-left:90px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select th:field="*{grade}" id="status" name="status" class="txtbox" style="margin-left:50px;">
-      <option disabled selected value="Select grade">Select grade</option>
-      <option data-from-dependent="UNKNOWN1" value="1">1</option>
-      <option data-from-dependent="UNKNOWN2" value="2">2</option>
-      <option data-from-dependent="UNKNOWN3" value="3">3</option>
-      <option data-from-dependent="UNKNOWN4" value="4">4</option>
-      <option data-from-dependent="UNKNOWN5" value="5">5</option>
-    </select>
-    <br><br>
+    <input type="text" th:field="*{grade}" name="grade" class="txtbox" style="margin-left:50px;" disabled><br><br>
 
     <!--Grade-->
     <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">成績</h5>
@@ -468,188 +439,14 @@ tr:nth-child(odd){
       </div>
     </div><br>
 
-    <!--button-->
-    <input type="submit" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:40%">
+    <!--buttons-->
+    <input type="submit" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:35%">
+    <input type="button" value="削除" name="btn_login" id="btn_delete">
 
   </form>
 </div><br><br>
 
-  </div>
- <!--Table-->
-<div class="zui-wrapper" style="margin-left:120px;">
-  <div class="zui-scroller">
-    <table class="zui-table">
-      <thead>
-      <tr>
-        <th class="zui-sticky-col">アクション</th>
-        <th>考課パターン</th>
-        <th>職制</th>
-        <th>等級</th>
-        <th>成績１(項目)</th>
-        <th>成績１(評価の着眼点)</th>
-        <th>成績１(ウェイント昇給)</th>
-        <th>成績１(ウェイント賞与)</th>
-
-        <th>成績2(項目)</th>
-        <th>成績2(評価の着眼点)</th>
-        <th>成績2(ウェイント昇給)</th>
-        <th>成績2(ウェイント賞与)</th>
-
-        <th>成績3(項目)</th>
-        <th>成績3(評価の着眼点)</th>
-        <th>成績3(ウェイント昇給)</th>
-        <th>成績3(ウェイント賞与)</th>
-
-        <th>成績4(項目)</th>
-        <th>成績4(評価の着眼点)</th>
-        <th>成績4(ウェイント昇給)</th>
-        <th>成績4(ウェイント賞与)</th>
-
-        <th>成績5(項目)</th>
-        <th>成績5(評価の着眼点)</th>
-        <th>成績5(ウェイント昇給)</th>
-        <th>成績5(ウェイント賞与)</th>
-
-        <th>成績１(項目)</th>
-        <th>成績１(評価の着眼点)</th>
-        <th>成績１(ウェイント昇給)</th>
-        <th>成績１(ウェイント賞与)</th>
-
-        <th>成績2(項目)</th>
-        <th>成績2(評価の着眼点)</th>
-        <th>成績2(ウェイント昇給)</th>
-        <th>成績2(ウェイント賞与)</th>
-
-        <th>成績3(項目)</th>
-        <th>成績3(評価の着眼点)</th>
-        <th>成績3(ウェイント昇給)</th>
-        <th>成績3(ウェイント賞与)</th>
-
-        <th>成績4(項目)</th>
-        <th>成績4(評価の着眼点)</th>
-        <th>成績4(ウェイント昇給)</th>
-        <th>成績4(ウェイント賞与)</th>
-
-        <th>成績１(項目)</th>
-        <th>成績１(評価の着眼点)</th>
-        <th>成績１(ウェイント昇給)</th>
-        <th>成績１(ウェイント賞与)</th>
-
-        <th>成績2(項目)</th>
-        <th>成績2(評価の着眼点)</th>
-        <th>成績2(ウェイント昇給)</th>
-        <th>成績2(ウェイント賞与)</th>
-
-        <th>成績3(項目)</th>
-        <th>成績3(評価の着眼点)</th>
-        <th>成績3(ウェイント昇給)</th>
-        <th>成績3(ウェイント賞与)</th>
-
-        <th>成績4(項目)</th>
-        <th>成績4(評価の着眼点)</th>
-        <th>成績4(ウェイント昇給)</th>
-        <th>成績4(ウェイント賞与)</th>
-      </tr>
-      </thead>
-      <tbody>
-
-      <tr th:each="allGradeList : ${allGradeLists}">
-        <td class="zui-sticky-col"><a th:href="@{/gradeRegEdit/{appraisal_pattern}(appraisal_pattern=${allGradeList.appraisal_pattern})}">修正</a></td>
-        <td th:text="${allGradeList.appraisal_pattern}" id="appraisal_pattern"></td>
-        <td th:text="${allGradeList.officer}" id="officer"></td>
-        <td th:text="${allGradeList.grade}" id="grade"></td>
-
-        <td th:text="${allGradeList.grade1_item}" id="grade1_item"></td>
-        <td th:text="${allGradeList.grade1_evaluation_points}" id="grade1_evaluation_points"></td>
-        <td th:text="${allGradeList.grade1_weight_salary_increase}" id="grade1_weight_salary_increase"></td>
-        <td th:text="${allGradeList.grade1_weight_bonus}" id="grade1_weight_bonus"></td>
-
-        <td th:text="${allGradeList.grade2_item}" id="grade2_item"></td>
-        <td th:text="${allGradeList.grade2_evaluation_points}" id="grade2_evaluation_points"></td>
-        <td th:text="${allGradeList.grade2_weight_salary_increase}" id="grade2_weight_salary_increase"></td>
-        <td th:text="${allGradeList.grade2_weight_bonus}" id="grade2_weight_bonus"></td>
-
-        <td th:text="${allGradeList.grade3_item}" id="grade3_item"></td>
-        <td th:text="${allGradeList.grade3_evaluation_points}" id="grade3_evaluation_points"></td>
-        <td th:text="${allGradeList.grade3_weight_salary_increase}" id="grade_weight_salary_increase"></td>
-        <td th:text="${allGradeList.grade3_weight_bonus}" id="grade3_weight_bonus"></td>
-
-        <td th:text="${allGradeList.grade4_item}" id="grade4_item"></td>
-        <td th:text="${allGradeList.grade4_evaluation_points}" id="grade4_evaluation_points"></td>
-        <td th:text="${allGradeList.grade4_weight_salary_increase}" id="grade4_weight_salary_increase"></td>
-        <td th:text="${allGradeList.grade4_weight_bonus}" id="grade4_weight_bonus"></td>
-
-        <td th:text="${allGradeList.grade5_item}" id="grade5_item"></td>
-        <td th:text="${allGradeList.grade5_evaluation_points}" id="grade5_evaluation_points"></td>
-        <td th:text="${allGradeList.grade5_weight_salary_increase}" id="grade5_weight_salary_increase"></td>
-        <td th:text="${allGradeList.grade5_weight_bonus}" id="grade5_weight_bonus"></td>
-
-        <td th:text="${allGradeList.ability1_item}" id="ability1_item"></td>
-        <td th:text="${allGradeList.ability1_evaluation_points}" id="ability1_evaluation_points"></td>
-        <td th:text="${allGradeList.ability1_weight_salary_increase}" id="ability1_weight_salary_increase"></td>
-        <td th:text="${allGradeList.ability1_weight_bonus}" id="ability1_weight_bonus"></td>
-
-        <td th:text="${allGradeList.ability2_item}" id="ability2_item"></td>
-        <td th:text="${allGradeList.ability2_evaluation_points}" id="ability2_evaluation_points"></td>
-        <td th:text="${allGradeList.ability2_weight_salary_increase}" id="ability2_weight_salary_increase"></td>
-        <td th:text="${allGradeList.ability2_weight_bonus}" id="ability2_weight_bonus"></td>
-
-        <td th:text="${allGradeList.ability3_item}" id="ability3_item"></td>
-        <td th:text="${allGradeList.ability3_evaluation_points}" id="ability3_evaluation_points"></td>
-        <td th:text="${allGradeList.ability3_weight_salary_increase}" id="ability3_weight_salary_increase"></td>
-        <td th:text="${allGradeList.ability3_weight_bonus}" id="ability3_weight_bonus"></td>
-
-        <td th:text="${allGradeList.ability4_item}" id="ability4_item"></td>
-        <td th:text="${allGradeList.ability4_evaluation_points}" id="ability4_evaluation_points"></td>
-        <td th:text="${allGradeList.ability4_weight_salary_increase}" id="ability4_weight_salary_increase"></td>
-        <td th:text="${allGradeList.ability4_weight_bonus}" id="ability4_weight_bonus"></td>
-
-        <td th:text="${allGradeList.approach_attitude1_item}" id="approach_attitude1_item"></td>
-        <td th:text="${allGradeList.approach_attitude1_evaluation_points}" id="approach_attitude1_evaluation_points"></td>
-        <td th:text="${allGradeList.approach_attitude1_weight_salary_increase}" id="approach_attitude1_weight_salary_increase"></td>
-        <td th:text="${allGradeList.approach_attitude1_weight_bonus}" id="approach_attitude1_weight_bonus"></td>
-
-        <td th:text="${allGradeList.approach_attitude2_item}" id="approach_attitude2_item"></td>
-        <td th:text="${allGradeList.approach_attitude2_evaluation_points}" id="approach_attitude2_evaluation_points"></td>
-        <td th:text="${allGradeList.approach_attitude2_weight_salary_increase}" id="approach_attitude2_weight_salary_increase"></td>
-        <td th:text="${allGradeList.approach_attitude2_weight_bonus}" id="approach_attitude2_weight_bonus"></td>
-
-        <td th:text="${allGradeList.approach_attitude3_item}" id="approach_attitude3_item"></td>
-        <td th:text="${allGradeList.approach_attitude3_evaluation_points}" id="approach_attitude3_evaluation_points"></td>
-        <td th:text="${allGradeList.approach_attitude3_weight_salary_increase}" id="approach_attitude3_weight_salary_increase"></td>
-        <td th:text="${allGradeList.approach_attitude3_weight_bonus}" id="approach_attitude3_weight_bonus"></td>
-
-        <td th:text="${allGradeList.approach_attitude4_item}" id="approach_attitude4_item"></td>
-        <td th:text="${allGradeList.approach_attitude4_evaluation_points}" id="approach_attitude4_evaluation_points"></td>
-        <td th:text="${allGradeList.approach_attitude4_weight_salary_increase}" id="approach_attitude4_weight_salary_increase"></td>
-        <td th:text="${allGradeList.approach_attitude4_weight_bonus}" id="approach_attitude4_weight_bonus"></td>
-
-      </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
-
-
-
-
-<SCRIPT language=JavaScript>
-document.addEventListener("change", checkSelect);
-
-function checkSelect(evt) {
-  const origin = evt.target;
-
-  if (origin.dataset.dependentSelector) {
-    const selectedOptFrom = origin.querySelector("option:checked")
-      .dataset.dependentOpt || "n/a";
-    const addRemove = optData => (optData || "") === selectedOptFrom
-      ? "add" : "remove";
-    document.querySelectorAll(`${origin.dataset.dependentSelector} option`)
-      .forEach( opt =>
-        opt.classList[addRemove(opt.dataset.fromDependent)]("display") );
-  }
-}
-</SCRIPT>
 
 
 </body>

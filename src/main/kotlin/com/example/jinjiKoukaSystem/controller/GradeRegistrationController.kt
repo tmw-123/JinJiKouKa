@@ -2,17 +2,21 @@ package com.example.jinjiKoukaSystem.controller
 
 import com.example.jinjiKoukaSystem.model.Grade
 import com.example.jinjiKoukaSystem.respository.GradeRepository
+import com.example.jinjiKoukaSystem.service.GradeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.ModelAttribute
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
+import java.security.Principal
 
 @Controller
 class GradeRegistrationController {
 
     @Autowired
     private val gradeRepository: GradeRepository? = null
+
+    @Autowired
+    private val gradeService: GradeService? = null
 
     /*save all grade data in table*/
     @RequestMapping("/saveGradeRegistration")
@@ -36,5 +40,19 @@ class GradeRegistrationController {
     }
 
 
+    @RequestMapping("/gradeRegEdit/{appraisal_pattern}",method = [RequestMethod.GET])
+    fun gradeRegEdit(@PathVariable("appraisal_pattern") appraisal_pattern: String, model: Model) : String {
+        val editGrade: Grade = gradeRepository?.selectGradeEdit(appraisal_pattern) as Grade
+        model.addAttribute("editGrade", editGrade)
+        return "gradeRegEdit"
+    }
+
+    @PostMapping("/updateGrade")
+    @Throws(Exception::class)
+    fun updateGrade(model: Model?,@ModelAttribute("grade") grade: Grade?, principal: Principal?): String?
+    { // save grades to database
+        gradeService?.saveGrade(grade)
+        return "redirect:/gradeRegistration"
+    }
 
 }
