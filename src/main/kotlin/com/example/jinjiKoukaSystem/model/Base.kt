@@ -12,6 +12,7 @@ class Base{
     @Column(name = "update_datetime")
     var update_datetime: String? = null
 
+    @Id
     @Column(name = "approver_id")
     var approver_id: String? = null
 
