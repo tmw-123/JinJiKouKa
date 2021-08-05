@@ -9,6 +9,7 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
+
 @Controller
 class GradeRegistrationController {
 
@@ -63,4 +64,13 @@ class GradeRegistrationController {
         gradeService?.saveGrade(grade)
         return "redirect:/gradeRegistration"
     }
+
+
+    @GetMapping("/deleteGrade/{grade_id}")
+    fun deleteGrade(@PathVariable(value = "grade_id") grade_id: String): String? {
+        // call delete employee method
+        this.gradeService?.deleteGradeById(grade_id)
+        return "redirect:/gradeRegistration"
+    }
+
 }

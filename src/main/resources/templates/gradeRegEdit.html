@@ -443,12 +443,18 @@ tr:nth-child(odd){
 
     <!--buttons-->
     <input type="submit" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:35%">
-    <input type="button" value="削除" name="btn_login" id="btn_delete">
+
 
   </form>
-</div><br><br>
+
+
+  <a th:each="allGradeList : ${editGrade}" th:href="@{/deleteGrade/{grade_id}(grade_id=${allGradeList.grade_id})}">
+  <input type="submit" value="登録ボタン" name="btn_delete" id="btn_delete" style="margin-left:35%">
+  </a>
 
 </div>
+
+
 
 
 </body>

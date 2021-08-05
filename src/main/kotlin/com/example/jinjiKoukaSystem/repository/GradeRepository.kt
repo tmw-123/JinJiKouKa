@@ -24,4 +24,8 @@ interface GradeRepository : CrudRepository<Grade, String> {
 
     @Query(value = "SELECT grade_id FROM m_each_grade_appraisal_pattern ORDER BY grade_id DESC LIMIT 1", nativeQuery = true)
     fun selectLastRecordGradeId(): String?
+
+    @Query(value = "delete FROM m_each_grade_appraisal_pattern WHERE grade_id =:grade_id", nativeQuery = true)
+    fun deleteGradeNumber(@Param("grade_id") grade_id: String?): Grade
+
 }
