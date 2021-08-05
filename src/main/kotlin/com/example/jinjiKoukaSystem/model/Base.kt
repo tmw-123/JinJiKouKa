@@ -2,7 +2,6 @@ package com.example.jinjiKoukaSystem.model
 
 import javax.persistence.*
 
-
 @Entity
 @Table(name = "m_base")
 class Base{

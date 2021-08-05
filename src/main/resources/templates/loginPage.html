@@ -171,37 +171,31 @@ text-align: center;
         <div class="content row">
           <div class=".formCon form">
 
-            <form id="form-id" th:action="@{/j_spring_security_check}" method="POST" >
+            <form id="form-id" th:action="@{/j_spring_security_check}" method="POST">
               <table class="center">
                 <tr style="border: 1px solid gray;">
                   <td style="width:150px;border: 1px solid gray;">ログインID</td>
                   <td style="border: 1px solid gray; width:220px;">
-                    <input type='text' name='username' value='' id="username">
+                    <input type='text' name='username' value='' id="username" required>
                   </td>
                 </tr>
                 <tr style="border: 1px solid gray;">
                   <td style="width:150px;border: 1px solid gray;">パスワード</td>
                   <td style="border: 1px solid gray; width:220px;">
-                    <input type='password' name='password' value='' id="password">
+                    <input type='password' name='password' value='' id="password" required>
                   </td>
                 </tr>
               </table><br>
 
               <div class="center">
-                <a th:href="@{/administratorPage}">
-                <input type="button" value="ログイン" name="btn_login" id="btn_login">
+                <a th:href="@{/pjList}">
+                  <input type="submit" value="ログイン" name="btn_login" id="btn_login" onclick="validate()">
                 </a>
               </div>
             </form>
           </div>
-  </div>
-</div>
-
-<script>
-	document.querySelector("#btn_login").addEventListener("click",function(){
-    document.querySelector(".popup").classList.add("active");
-    });
-</script>
+        </div>
+      </div>
 
 <script>
 function validate(){
