@@ -1,6 +1,8 @@
 package com.example.jinjiKoukaSystem.controller
 
+import com.example.jinjiKoukaSystem.model.Base
 import com.example.jinjiKoukaSystem.model.Grade
+import com.example.jinjiKoukaSystem.repository.AuthorizerRegistrationRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -17,10 +19,18 @@ class AdministratorSettingController {
     @Autowired
     private val gradeRepository: GradeRepository? = null
 
+    @Autowired
+    private val authoRegRepository: AuthorizerRegistrationRepository? = null
 
     @RequestMapping("/administratorPage")
     fun administratorPage(model: Model): String {
         return "administratorSettingPage"
+    }
+
+    @RequestMapping("/authorizerRegistration")
+    fun authorizerRegistration(model: Model, @ModelAttribute authorizerReg: Base): String {
+        model.addAttribute("allAuthorizerLists", authoRegRepository?.findAll())
+        return "authorizerRegistration"
     }
 
     @RequestMapping("/gradeRegistration")

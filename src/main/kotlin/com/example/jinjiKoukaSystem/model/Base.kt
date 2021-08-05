@@ -2,11 +2,16 @@ package com.example.jinjiKoukaSystem.model
 
 import javax.persistence.*
 
+
 @Entity
 @Table(name = "m_base")
 class Base{
 
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public val id = 1L
+
     @Column(name = "register_datetime")
     var register_datetime: String? = null
 
@@ -522,7 +527,6 @@ class Base{
 
     @Column(name = "work_flg")
     var work_flg: Boolean? = null
-
 
     fun getRegisterDatetime(): String? {
         return register_datetime
@@ -1820,7 +1824,8 @@ class Base{
     }
 
     constructor(
-        register_datetime : String?
+        id : Long
+        ,register_datetime : String?
         ,update_datetime : String?
         ,approver_id : String?
         ,password1: String?
