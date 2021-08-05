@@ -173,6 +173,9 @@ class AppraisalPattern{
     @Column(name = "approach_attitude4_weight_bonus")
     var approach_attitude4_weight_bonus : String? = null
 
+    @Column(name = "id")
+    var id : Long? = null
+
     constructor(
         appraisal_pattern : String?
         ,officer : String?
@@ -229,7 +232,7 @@ class AppraisalPattern{
         ,approach_attitude4_evaluation_points : String?
         ,approach_attitude4_weight_salary_increase : String?
         ,approach_attitude4_weight_bonus : String?
-
+        ,id : Long?
         ): super() {
         this.appraisal_pattern = appraisal_pattern
             this.officer = officer
@@ -286,6 +289,7 @@ class AppraisalPattern{
             this.approach_attitude4_evaluation_points = approach_attitude4_evaluation_points
             this.approach_attitude4_weight_salary_increase = approach_attitude4_weight_salary_increase
             this.approach_attitude4_weight_bonus = approach_attitude4_weight_bonus
+            this.id = id
 
 
         }
