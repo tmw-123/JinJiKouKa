@@ -188,14 +188,16 @@ tr:nth-child(odd){
   <!--in GradeRegistrationController-->
   <form action="#" th:action="@{/updateGrade}" th:object="${editGrade}" method="post">
 
+    <input type="text" th:field="*{grade_id}" name="grade_id" style="margin-left:50px;display:none">
+
     <label style="margin-left:50px;">考課パターン</label>&nbsp;&nbsp;&nbsp;
-    <input type="text" th:field="*{appraisal_pattern}" name="appraisal_pattern" class="txtbox" style="margin-left:50px;" disabled><br><br>
+    <input type="text" th:field="*{appraisal_pattern}" name="appraisal_pattern" class="txtbox" style="margin-left:50px;" readonly ><br><br>
 
     <label style="margin-left:90px;">職制</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" th:field="*{officer}" name="officer" class="txtbox" style="margin-left:50px;" disabled><br><br>
+    <input type="text" th:field="*{officer}" name="officer" class="txtbox" style="margin-left:50px;" readonly ><br><br>
 
     <label style="margin-left:90px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" th:field="*{grade}" name="grade" class="txtbox" style="margin-left:50px;" disabled><br><br>
+    <input type="text" th:field="*{grade}" name="grade" class="txtbox" style="margin-left:50px;" readonly ><br><br>
 
     <!--Grade-->
     <h5 style="font-family: Arial, sans-serif;font-size: 18px;height:10px;margin-left: 50px;color:red">成績</h5>
@@ -441,12 +443,18 @@ tr:nth-child(odd){
 
     <!--buttons-->
     <input type="submit" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:35%">
-    <input type="button" value="削除" name="btn_login" id="btn_delete">
+
 
   </form>
-</div><br><br>
+
+
+  <a th:each="allGradeList : ${editGrade}" th:href="@{/deleteGrade/{grade_id}(grade_id=${allGradeList.grade_id})}">
+  <input type="submit" value="登録ボタン" name="btn_delete" id="btn_delete" style="margin-left:35%">
+  </a>
 
 </div>
+
+
 
 
 </body>
