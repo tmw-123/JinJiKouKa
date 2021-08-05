@@ -218,7 +218,7 @@ tr:nth-child(odd){
         <br><br>
 
         <label style="margin-left:50px;">管理者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" value="1" style="margin-left: 20px;">
+        <input type="checkbox" id="admin_flg" onclick="adminFlg()"   name='admin_flg'>
         <label style="margin-left:245px;">一次評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" th:text="*{primary_evaluation_rank_bonus}" name="primary_evaluation_rank_bonus" class="txtbox" style="margin-left:18px;">
         <label style="margin-left:90px;">一次評価合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -305,7 +305,7 @@ tr:nth-child(odd){
         <label style="margin-left:50px;">一次二次評価者ID</label>
         <input type="text" th:text="*{primary_secondary_evaluation_id}" name="primary_secondary_evaluation_id" class="txtbox" style="margin-left:2px;">
         <label style="margin-left:90px;">退職者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" id="myCheck" onclick="myFunction()">
+        <input type="checkbox" id="retire_flg" onclick="myFunction()"   name='retire_flg'>
         <br><br>
 
         <label style="margin-left:50px;">部門調整ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -383,7 +383,7 @@ tr:nth-child(odd){
                 <td th:text="${allAuthorizer.mail_address}" id="mail_address"></td>
                 <td th:text="${allAuthorizer.belong_cd}" id="belong_cd"></td>
                 <td th:text="${allAuthorizer.belong1}" id="belong1"></td>
-                <td th:text="${allAuthorizer.admin_flg}" id="admin_flg"></td>
+                <td th:text="${allAuthorizer.admin_flg}" id="admin_flg_"></td>
                 <td th:text="${allAuthorizer.job_cd}" id="job_cd"></td>
                 <td th:text="${allAuthorizer.officer}" id="officer"></td>
                 <td th:text="${allAuthorizer.grade1}" id="grade1"></td>
@@ -423,7 +423,7 @@ tr:nth-child(odd){
                 <td th:text="${allAuthorizer.secondary_evaluation_authority}" id="secondary_evaluation_authority"></td>
                 <td th:text="${allAuthorizer.service_period_year}" id="service_period_year"></td>
                 <td th:text="${allAuthorizer.service_period_month}" id="service_period_month"></td>
-                <td><p id="text" style="display:none">Checkbox is CHECKED!</p></td>
+                <td th:text="${allAuthorizer.retire_flg}" id="retire_flg_"></td></td>
             </tr>
             </tbody>
         </table>
@@ -433,9 +433,20 @@ tr:nth-child(odd){
 <script>
 function myFunction() {
 // Get the checkbox
-var checkBox = document.getElementById("myCheck");
+var checkBox = document.getElementById("retire_flg");
+
 // Get the output text
 var text = document.getElementById("text");
+
+var value = document.getElementById("retire_flg");
+
+if(document.getElementById("retire_flg").checked == true){
+    document.getElementById("retire_flg").value = 1;
+}
+else{
+
+document.getElementById("retire_flg").value = 0;
+}
 
 // If the checkbox is checked, display the output text
 if (checkBox.checked == true){
@@ -443,6 +454,23 @@ text.style.display = "block";
 } else {
 text.style.display = "none";
 }
+}
+
+function adminFlog() {
+// Get the checkbox
+var checkBox = document.getElementById("admin_flg");
+
+var value = document.getElementById("admin_flg");
+alert(document.getElementById("admin_flg").checked);
+if(document.getElementById("admin_flg").checked == true){
+
+document.getElementById("admin_flg").value = 1;
+}
+else{
+
+document.getElementById("admin_flg").value = 0;
+}
+
 }
 </script>
 </body>

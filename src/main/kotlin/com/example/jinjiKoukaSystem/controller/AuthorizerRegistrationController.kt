@@ -18,6 +18,12 @@ class AuthorizerRegistrationController {
     /*save all authorizer data in table*/
     @RequestMapping("/saveAuthorizerRegistration")
     fun saveAuthorizerRegistration(model: Model, @ModelAttribute authorizerReg: Base): String? {
+        if (authorizerReg.retire_flg == null )
+        authorizerReg.retire_flg = false
+
+        if (authorizerReg.admin_flg == null )
+            authorizerReg.admin_flg= false
+
         val newAuthorizerReg = Base(authorizerReg.id,authorizerReg.register_datetime,authorizerReg.update_datetime,authorizerReg.approver_id,authorizerReg.password1,authorizerReg.employee_cd,authorizerReg.mail_address,authorizerReg.personal_flg,authorizerReg.illegal_address_flg,authorizerReg.mobile_domain_flg,authorizerReg.double_flg,
             authorizerReg.deliver_err_count,authorizerReg.user_ip_address,authorizerReg.user_agent,authorizerReg.update_delete_key,authorizerReg.belong_cd,authorizerReg.belong1,authorizerReg.admin_flg,authorizerReg.job_cd,authorizerReg.officer,authorizerReg.grade1,authorizerReg.name1,authorizerReg.personal_appraisal_name,authorizerReg.evaluation_status,
             authorizerReg.self_evaluation_id,authorizerReg.primary_evaluation_id,authorizerReg.secondary_evaluation_id,authorizerReg.primary_secondary_evaluation_id,authorizerReg.self_evaluation_flg,authorizerReg.self_evaluation_rank,authorizerReg.self_evaluation_total_score,authorizerReg.self_evaluation_rank_bonus,authorizerReg.self_evaluation_total_score_bonus,
@@ -37,6 +43,8 @@ class AuthorizerRegistrationController {
             authorizerReg.primary_secondary_evaluation_flg,authorizerReg.evaluation_update_flg,authorizerReg.depart_adjust_id,authorizerReg.retire_flg,authorizerReg.appraisal_authority,authorizerReg.system_create_authority,authorizerReg.birthday,authorizerReg.company_entry_date,authorizerReg.delete_category,authorizerReg.primary_evaluation_authority,authorizerReg.secondary_evaluation_authority,authorizerReg.service_period_year,authorizerReg.service_period_month,
             authorizerReg.display_primary_evaluation_name,authorizerReg.display_secondary_evaluation_name,authorizerReg.display_primary_secondary_evaluation_name,authorizerReg.display_depart_adjust_evaluation_name,authorizerReg.display_data_status,authorizerReg.display_selection_flg,authorizerReg.work_flg);
         authorizerRepository?.save(newAuthorizerReg)
+        print (authorizerReg.retire_flg)
+        print (authorizerReg.id)
         return "redirect:/authorizerRegistration"
     }
 }

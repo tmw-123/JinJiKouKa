@@ -1,11 +1,11 @@
 package com.example.jinjiKoukaSystem.model
 
 import javax.persistence.*
-
+import java.io.Serializable
 
 @Entity
 @Table(name = "m_base")
-class Base{
+class Base : Serializable {
 
     @Id
     @Column(name = "id")

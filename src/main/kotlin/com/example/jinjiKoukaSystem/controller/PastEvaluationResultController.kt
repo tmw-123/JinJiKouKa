@@ -38,5 +38,4 @@ class PastEvaluationResultController {
 
         return "pastEvaluation"
     }
-
 }
