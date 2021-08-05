@@ -6,8 +6,10 @@ import javax.persistence.*
 @Table(name = "m_each_grade_appraisal_pattern")
 class Grade{
 
-
     @Id
+    @Column(name = "grade_id")
+    var grade_id: String? = null
+
     @Column(name = "appraisal_pattern")
     var appraisal_pattern: String? = null
 
@@ -183,7 +185,8 @@ class Grade{
     }
 
     constructor(
-        appraisal_pattern: String?
+        grade_id:String?
+        ,appraisal_pattern: String?
         ,officer: String?
         ,grade: String?
         ,grade1_item: String?
@@ -239,6 +242,7 @@ class Grade{
         ,approach_attitude4_weight_salary_increase: String?
         ,approach_attitude4_weight_bonus: String? ): super() {
 
+        this.grade_id = grade_id
         this.appraisal_pattern =appraisal_pattern
         this.officer = officer
         this.grade = grade
