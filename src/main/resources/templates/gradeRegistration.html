@@ -554,7 +554,8 @@ tr:nth-child(odd){
       <tbody>
 
       <tr th:each="allGradeList : ${allGradeLists}">
-        <td class="zui-sticky-col"><a th:href="@{/gradeRegEdit/{appraisal_pattern}(appraisal_pattern=${allGradeList.appraisal_pattern})}">修正</a></td>
+        <td class="zui-sticky-col"><a th:href="@{/gradeRegEdit/{grade_id}(grade_id=${allGradeList.grade_id})}">修正</a></td>
+        <td th:text="${allGradeList.grade_id}" id="grade_id" style="display:none"></td>
         <td th:text="${allGradeList.appraisal_pattern}" id="appraisal_pattern"></td>
         <td th:text="${allGradeList.officer}" id="officer"></td>
         <td th:text="${allGradeList.grade}" id="grade"></td>

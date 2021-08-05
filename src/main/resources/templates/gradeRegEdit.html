@@ -188,6 +188,8 @@ tr:nth-child(odd){
   <!--in GradeRegistrationController-->
   <form action="#" th:action="@{/updateGrade}" th:object="${editGrade}" method="post">
 
+    <input type="text" th:field="*{grade_id}" name="grade_id" style="margin-left:50px;display:none">
+
     <label style="margin-left:50px;">考課パターン</label>&nbsp;&nbsp;&nbsp;
     <input type="text" th:field="*{appraisal_pattern}" name="appraisal_pattern" class="txtbox" style="margin-left:50px;" readonly ><br><br>
 
