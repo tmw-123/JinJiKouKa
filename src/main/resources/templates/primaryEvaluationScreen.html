@@ -30,7 +30,7 @@
 </style>
 <body>
 <h1 style="text-align:center">人事考課表</h1>
-<form action="#" th:action="@{/savePrimaryEvaluation}" th:object="${appraisalResult}" method="post">
+<form action="#" th:action="@{/savePrimaryEvaluation}" th:object="*{appraisalResult}" method="post">
 <table>
   <tr>
     <th style="width:5px; height:30px;">所属</th>
