@@ -305,7 +305,7 @@ tr:nth-child(odd){
         <label style="margin-left:50px;">一次二次評価者ID</label>
         <input type="text" th:text="*{primary_secondary_evaluation_id}" name="primary_secondary_evaluation_id" class="txtbox" style="margin-left:2px;">
         <label style="margin-left:90px;">退職者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" value="1" style="margin-left: 20px;">
+        <input type="checkbox" id="myCheck" onclick="myFunction()">
         <br><br>
 
         <label style="margin-left:50px;">部門調整ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -423,11 +423,27 @@ tr:nth-child(odd){
                 <td th:text="${allAuthorizer.secondary_evaluation_authority}" id="secondary_evaluation_authority"></td>
                 <td th:text="${allAuthorizer.service_period_year}" id="service_period_year"></td>
                 <td th:text="${allAuthorizer.service_period_month}" id="service_period_month"></td>
-                <td th:text="${allAuthorizer.retire_flg}" id="retire_flg"></td>
+                <td><p id="text" style="display:none">Checkbox is CHECKED!</p></td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+<script>
+function myFunction() {
+// Get the checkbox
+var checkBox = document.getElementById("myCheck");
+// Get the output text
+var text = document.getElementById("text");
+
+// If the checkbox is checked, display the output text
+if (checkBox.checked == true){
+text.style.display = "block";
+} else {
+text.style.display = "none";
+}
+}
+</script>
 </body>
 </html>
