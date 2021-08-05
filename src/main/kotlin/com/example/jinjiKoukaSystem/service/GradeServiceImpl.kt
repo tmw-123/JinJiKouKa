@@ -16,7 +16,7 @@ class GradeServiceImpl :GradeService {
     }
 
     override fun saveGrade(grade: Grade?): Grade? {
-        val updateGrade = Grade(grade?.appraisal_pattern,grade?.officer,grade?.grade,
+        val updateGrade = Grade(grade?.grade_id,grade?.appraisal_pattern,grade?.officer,grade?.grade,
             grade?.grade1_item,grade?.grade1_evaluation_points,grade?.grade1_weight_salary_increase,grade?.grade1_weight_bonus,
             grade?.grade2_item,grade?.grade2_evaluation_points,grade?.grade2_weight_salary_increase,grade?.grade2_weight_bonus,
             grade?.grade3_item,grade?.grade3_evaluation_points,grade?.grade3_weight_salary_increase,grade?.grade3_weight_bonus,
