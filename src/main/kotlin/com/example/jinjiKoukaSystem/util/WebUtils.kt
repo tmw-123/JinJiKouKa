@@ -1,4 +1,4 @@
-package com.example.jinjiKoukaSystem.util
+package com.example.jinjiKoukaSystem.utils
 
 import org.springframework.security.core.userdetails.User
 

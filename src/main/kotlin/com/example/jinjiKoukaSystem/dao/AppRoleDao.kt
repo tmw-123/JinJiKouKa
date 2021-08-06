@@ -6,9 +6,10 @@ import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 import javax.sql.DataSource
 
+
 @Repository
 @Transactional
-class AppRoleDao @Autowired constructor(dataSource: DataSource?) : JdbcDaoSupport() {
+class AppRoleDAO @Autowired constructor(dataSource: DataSource?) : JdbcDaoSupport() {
     fun getRoleNames(userId: Long): List<String> {
         val sql = ("Select r.Role_Name " //
                 + " from User_Role ur, App_Role r " //

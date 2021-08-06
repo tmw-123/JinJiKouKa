@@ -2,12 +2,41 @@ package com.example.jinjiKoukaSystem.model
 
 import java.io.Serializable
 
-class AppUserForm : Serializable {
-    var userId: Long = 0
-    var userName: String? = null
-    var encrytedPassword: String? = null
+class AppUserForm:Serializable {
 
-    companion object {
-        const val serialversionuid = 1L
+    private val serialVersionUID = 1L
+    private var userId: Long = 0
+    private var userCd: String? = null
+    private var encrytedPassword: String? = null
+
+
+    fun getUserId(): Long {
+        return userId
     }
+
+    fun setUserId(userId: Long) {
+        this.userId = userId
+    }
+
+    fun getUserName(): String? {
+        return userCd
+    }
+
+    fun setUserName(userCd: String?) {
+        this.userCd = userCd
+    }
+
+    fun getEncrytedPassword(): String? {
+        return encrytedPassword
+    }
+
+    fun setEncrytedPassword(encrytedPassword: String?) {
+        this.encrytedPassword = encrytedPassword
+    }
+
+    fun getSerialversionuid(): Long {
+        return serialVersionUID
+    }
+
+
 }

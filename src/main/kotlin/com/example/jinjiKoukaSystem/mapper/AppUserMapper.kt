@@ -8,9 +8,9 @@ import java.sql.SQLException
 class AppUserMapper : RowMapper<AppUser> {
     @Throws(SQLException::class)
     override fun mapRow(rs: ResultSet, rowNum: Int): AppUser {
-        val userId = rs.getLong("User_Id")
-        val userName = rs.getString("User_Name")
-        val encrytedPassword = rs.getString("Encryted_Password")
+        val userId = rs.getLong("user_id")
+        val userName = rs.getString("employee_cd")
+        val encrytedPassword = rs.getString("password")
         return AppUser(userId, userName, encrytedPassword)
     }
 
@@ -25,8 +25,8 @@ class AppUserMapper : RowMapper<AppUser> {
 
     companion object {
         const val BASE_SQL //
-                = "Select u.User_Id, u.User_Name, u.Encryted_Password From App_User u "
-        const val BASE_SQL1 //
-                = "Select  u.User_Id  From App_User u WHERE u.email = ?1 "
+                = "Select u.user_id, u.employee_cd, u.password From password u "
+        /*const val BASE_SQL1 //
+                = "Select  u.user_id  From user_master u WHERE u.email = ?1 "*/
     }
 }

@@ -1,8 +1,10 @@
-package com.example.jinjiKoukaSystem.util
+package com.example.jinjiKoukaSystem.utils
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
+
 object EncrytedPasswordUtils {
+
     fun encrytePassword(password: String?): String {
         val encoder = BCryptPasswordEncoder()
         return encoder.encode(password)
@@ -10,7 +12,7 @@ object EncrytedPasswordUtils {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        val password = "1234"
+        val password = "123"
         val encrytedPassword = encrytePassword(password)
         println("Encryted Password: $encrytedPassword")
     }
