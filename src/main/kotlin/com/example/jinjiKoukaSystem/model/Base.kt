@@ -9,7 +9,8 @@ class Base{
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public val id = 1L
+    //public val id = 1L
+    var id: Long? = 0
 
     @Column(name = "register_datetime")
     var register_datetime: String? = null
@@ -1823,7 +1824,7 @@ class Base{
     }
 
     constructor(
-        id : Long
+        id : Long?
         ,register_datetime : String?
         ,update_datetime : String?
         ,approver_id : String?

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=0">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+  <title>Approver Setting</title>
+  <style>
+
+.txtbox {
+	width: 170px;
+	height: 34px;
+	padding: 8px 20px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+.combo {
+	width: 170px;
+	height: 34px;
+	padding: 8px 10px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+.label {
+display: inline-block;
+background-color: #a2e0da;
+color: black;
+font-size:14px;
+width:110px;
+height:20px;
+text-align:left;
+padding:10px 4px 2px 4px;
+margin-left:300px;
+}
+
+.chk {
+	display: block;
+	position: relative;
+	margin-left: 400px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#btn_reg{
+width:100px;
+padding:10px;
+border:none;
+background:#5cbf96;
+border-radius:5px;
+margin:10px;
+text-align:center;
+font-size:16px;
+}
+#btn_reg:hover {
+background-color: #555;
+color: white;
+}
+
+
+#btn_delete{
+width:100px;
+padding:10px;
+border:none;
+background:red;
+border-radius:5px;
+margin:10px;
+text-align:center;
+font-size:16px;
+}
+#btn_delete:hover {
+background-color: #555;
+color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
+th {
+    background: #4c6491;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+}
+tr:nth-child(odd){
+  background-color: #c1e4f7;
+  color: #0a0a0a;
+}
+
+.zui-table {
+    border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+    background-color: #DDEFEF;
+    border: none;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-table tbody td {
+    border-bottom: solid 1px #DDEFEF;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-wrapper {
+    position: relative;
+    border:solid;
+    border-color:gray;
+    margin-right:120px;
+}
+
+.zui-scroller {
+    margin-left: 141px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 5px;
+    width: 87%;
+}
+
+.zui-table .zui-sticky-col {
+    border-left: solid 1px #DDEFEF;
+    border-right: solid 1px #DDEFEF;
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 120px;
+    text-align:center;
+}
+</style>
+
+</head>
+<body>
+<div>
+  <h2 style="margin-left: 600px;font-family: Arial, sans-serif;font-size: 25px;height:25px;">承認者設定</h2>
+  <hr style="width:90%;margin-left:70px;border-top: 1px dashed red;"><br>
+</div>
+<div style="margin-left: 70px;">
+  <form action="#" th:action="@{/updateAuthorizerInfo}" th:object="${editAuthorizerInfo}" method="post">
+    <label style="margin-left:50px;">承認者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{approver_id}" name="approver_id" class="txtbox" style="margin-left:50px;">
+    <label style="margin-left:90px;">自己評価フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{self_evaluation_flg}" name="self_evaluation_flg" class="txtbox" style="margin-left:50px;">
+    <br><br>
+
+    <label style="margin-left:50px;">パスワード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{password}" name="password" class="txtbox" style="margin-left:36px;">
+    <label style="margin-left:90px;">自己評価ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{self_evaluation_rank}" name="self_evaluation_rank" class="txtbox" style="margin-left:50px;">
+    <label style="margin-left:90px;">自己評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{self_evaluation_total_score}" name="self_evaluation_total_score" class="txtbox" style="margin-left:50px;">
+    <br><br>
+
+    <label style="margin-left:50px;">社員番号</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{employee_cd}" name="employee_cd" class="txtbox" style="margin-left:52px;">
+    <label style="margin-left:90px;">自己評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{self_evaluation_rank_bonus}" name="self_evaluation_rank_bonus" class="txtbox" style="margin-left:18px;">
+    <label style="margin-left:90px;">自己評価合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{self_evaluation_total_score_bonus}" name="self_evaluation_total_score_bonus" class="txtbox" style="margin-left:20px;">
+    <br><br>
+
+
+    <label style="margin-left:50px;">メールアドレス</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{mail_address}" name="mail_address" class="txtbox" style="margin-left:5px;">
+    <label style="margin-left:90px;">部門調整ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{depart_adjust_rank}" name="depart_adjust_rank" class="txtbox" style="margin-left:50px;">
+    <label style="margin-left:90px;">部門調整合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{depart_adjust_total_score}" name="depart_adjust_total_score" class="txtbox" style="margin-left:50px;">
+    <br><br>
+
+    <label style="margin-left:50px;">所属コード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="belong_cd" class="txtbox" style="margin-left:37px;">
+      <option disabled selected value="">所属コード選択</option>
+      <option>63</option>
+      <option>64</option>
+      <option>65</option>
+      <option>66</option>
+      <option>67</option>
+    </select>
+
+    <label style="margin-left:90px;">部門調整ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{depart_adjust_rank_bonus}" name="depart_adjust_rank_bonus" class="txtbox" style="margin-left:19px;">
+    <label style="margin-left:90px;">部門調整合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{depart_adjust_total_score_bonus}" name="depart_adjust_total_score_bonus" class="txtbox" style="margin-left:20px;">
+    <br><br>
+
+    <label style="margin-left:50px;">所属</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{belong}" name="belong" class="txtbox" style="margin-left:82px;">
+    <label style="margin-left:90px;">一次評価ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{primary_evaluation_rank}" name="primary_evaluation_rank" class="txtbox" style="margin-left:51px;">
+    <label style="margin-left:90px;">一次評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{primary_evaluation_total_score}" name="primary_evaluation_total_score" class="txtbox" style="margin-left:51px;">
+    <br><br>
+
+    <label style="margin-left:50px;">管理者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" id="admin_flg" onclick="adminFlg()"   name='admin_flg'>
+    <label style="margin-left:260px;">一次評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{primary_evaluation_rank_bonus}" name="primary_evaluation_rank_bonus" class="txtbox" style="margin-left:18px;">
+    <label style="margin-left:90px;">一次評価合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{primary_evaluation_total_score_bonus}" name="primary_evaluation_total_score_bonus" class="txtbox" style="margin-left:20px;">
+    <br><br>
+
+    <label style="margin-left:50px;">職制コード</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="job_cd" class="txtbox" style="margin-left:37px;">
+      <option disabled selected value="">職制コード選択</option>
+      <option>780</option>
+      <option>200</option>
+      <option>300</option>
+      <option>500</option>
+      <option>810</option>
+    </select>
+    <label style="margin-left:90px;">一次評価合者</label>
+    <label>記入欄</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{primary_evaluator_entry_field}" name="primary_evaluator_entry_field" class="txtbox" style="margin-left:15px;height:100px;">
+    <label style="margin-left:90px;">考課権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{appraisal_authority}" name="appraisal_authority" class="txtbox" style="margin-left:115px;">
+    <br><br>
+
+    <label style="margin-left:50px;">役職</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{officer}" name="officer" class="txtbox" style="margin-left:82px;">
+    <label style="margin-left:90px;">二次評価ランク</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluation_rank}" name="secondary_evaluation_rank" class="txtbox" style="margin-left:50px;">
+    <label style="margin-left:90px;">二次評価合計点数</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluation_total_score}" name="secondary_evaluation_total_score" class="txtbox" style="margin-left:52px;">
+    <br><br>
+
+    <label style="margin-left:50px;">等級</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{grade1}" name="grade1" class="txtbox" style="margin-left:82px;">
+    <label style="margin-left:90px;">二次評価ランク賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluation_rank_bonus}" name="secondary_evaluation_rank_bonus" class="txtbox" style="margin-left:18px;">
+    <label style="margin-left:90px;">二次評価合計点数賞与</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluation_total_score_bonus}" name="secondary_evaluation_total_score_bonus" class="txtbox" style="margin-left:20px;">
+    <br><br>
+
+    <label style="margin-left:50px;">氏名</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{name1}" name="name1" class="txtbox" style="margin-left:82px;">
+    <label style="margin-left:90px;">二次評価合者</label>
+    <label>記入欄</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluator_entry_field}" name="secondary_evaluator_entry_field" class="txtbox" style="margin-left:15px;height:100px;">
+    <label style="margin-left:90px;">システム作成権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{system_create_authority}" name="system_create_authority" class="txtbox" style="margin-left:52px;">
+    <br><br>
+
+    <label style="margin-left:50px;">評価状況<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ステータス</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="ComboBox" id="sts" class="combo" style="margin-left:37px;">
+      <option>1:人事部</option>
+      <option>2:その他</option>
+    </select>
+    <label style="margin-left:90px;">二次評価合者</label>
+    <label>記入日</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluator_entry_date}" name="secondary_evaluator_entry_date" class="txtbox" style="margin-left:15px;">
+    <label style="margin-left:90px;">生年月日</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{birthday}" name="birthday" class="txtbox" style="margin-left:115px;">
+    <br><br>
+
+    <label style="margin-left:50px;">自己評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{self_evaluation_id}" name="self_evaluation_id" class="txtbox" style="margin-left:18px;">
+    <label style="margin-left:90px;">入社年月日</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{company_entry_date}" name="company_entry_date" class="txtbox" style="margin-left:82px;">
+    <label style="margin-left:90px;">削除区分</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{delete_category}" name="delete_category" class="txtbox" style="margin-left:115px;">
+    <br><br>
+
+    <label style="margin-left:50px;">一次評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{primary_evaluation_id}" name="primary_evaluation_id" class="txtbox" style="margin-left:18px;">
+    <label style="margin-left:90px;">一次考課権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{primary_evaluation_authority}" name="primary_evaluation_authority" class="txtbox" style="margin-left:67px;">
+    <label style="margin-left:90px;">二次考課権限</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluation_authority}" name="secondary_evaluation_authority" class="txtbox" style="margin-left:82px;">
+    <br><br>
+
+    <label style="margin-left:50px;">二次評価者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{secondary_evaluation_id}" name="secondary_evaluation_id" class="txtbox" style="margin-left:18px;">
+    <label style="margin-left:90px;">勤続期間(年)</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{service_period_year}" name="service_period_year" class="txtbox" style="margin-left:73px;">
+    <label style="margin-left:90px;">勤続期間(月)</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{service_period_month}" name="service_period_month" class="txtbox" style="margin-left:87px;">
+    <br><br>
+
+    <label style="margin-left:50px;">一次二次評価者ID</label>
+    <input type="text" th:text="*{primary_secondary_evaluation_id}" name="primary_secondary_evaluation_id" class="txtbox" style="margin-left:2px;">
+    <label style="margin-left:90px;">退職者フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" id="retire_flg" onclick="myFunction()"   name='retire_flg'>
+    <br><br>
+
+    <label style="margin-left:50px;">部門調整ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" th:text="*{depart_adjust_id}" name="depart_adjust_id" class="txtbox" style="margin-left:34px;"><br><br>
+
+    <input type="submit" value="登録" name="btn_reg" id="btn_reg" style="margin-left:35%">
+  </form>
+  <a th:each="allAuthorizer : ${editAuthorizer}" th:href="@{/deleteAuthorizer/{approver_id}(id=${allAuthorizer.approver_id})}">
+    <input type="submit" value="削除" name="btn_delete" id="btn_delete" style="margin-left:35%">
+  </a>
+</div>
+</div>
+</body>
+</html>
