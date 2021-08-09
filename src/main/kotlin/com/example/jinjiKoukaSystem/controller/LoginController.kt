@@ -13,4 +13,5 @@ class LoginController {
         model.addAttribute("message", "This is welcome page!")
         return "loginPage"
     }
+
 }
