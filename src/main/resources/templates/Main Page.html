@@ -74,18 +74,17 @@
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
+
+					<tr th:each="mainPageData : ${mainPageData}">
 						<td style="width:10px; height:30px;">二次考課</td>
-						<td style="width:10px; height:30px;">総務部</td>
-						<td style="width:10px; height:30px;">一般</td>
-						<td style="width:10px; height:30px;">2</td>
-						<td style="width:10px; height:30px;color: red;">Aung Myint Myat</td>
-						<td style="width:10px; height:30px;">一次考課</td>
-						<td style="width:10px; height:30px;">A</td>
-						<td style="width:10px; height:30px;">B</td>
-						<td style="width:10px; height:30px;color: red;" id="btnResult" hidden><a
-								th:href="@{/showIndividualDetailsFormForUpdate/{id}(id=${IndividualDetails.id})}">評価</a>
-						</td>
+						<td th:text="${mainPageData.belong}" style="width:10px; height:30px;"></td>
+						<td th:text="${mainPageData.officer}" style="width:10px; height:30px;"></td>
+						<td th:text="${mainPageData.grade}" style="width:10px; height:30px;"></td>
+						<td th:text="${mainPageData.name}" style="width:10px; height:30px;color: red;"></td>
+						<td th:text="${mainPageData.evaluation_status}" style="width:10px; height:30px;"></td>
+						<td th:text="${mainPageData.secondary_evaluation_rank_bonus}" style="width:10px; height:30px;"></td>
+						<td th:text="${mainPageData.primary_evaluation_rank_bonus}" style="width:10px; height:30px;"></td>
+
 					</tr>
 
 					</tbody>
