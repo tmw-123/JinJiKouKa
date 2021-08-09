@@ -173,6 +173,7 @@ tr:nth-child(odd){
                     <thead>
                     <tr>
                         <th>考課種類</th>
+                        <th>所属</th>
                         <th>氏名</th>
                         <th>社員番号</th>
                         <th>等級</th>
@@ -186,6 +187,9 @@ tr:nth-child(odd){
                         <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
                             <option></option>
                         </select></td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
                         <td></td>
                         <td></td>
                         <td width="200px;"></td>
@@ -193,6 +197,9 @@ tr:nth-child(odd){
 
                     <tr th:each="evaluatorList : ${evaluator}">
                         <td style="text-align:left;">二次評価者</td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
                         <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
                             <option></option>
                         </select></td>
@@ -206,6 +213,9 @@ tr:nth-child(odd){
                         <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
                             <option></option>
                         </select></td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
                         <td></td>
                         <td></td>
                         <td width="200px;"></td>
@@ -213,6 +223,9 @@ tr:nth-child(odd){
 
                     <tr th:each="evaluatorList : ${evaluator}">
                         <td style="text-align:left;">部門調整</td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
                         <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
                             <option></option>
                         </select></td>
@@ -224,7 +237,7 @@ tr:nth-child(odd){
                 </table>
                 <br>
                 <input type="submit" value="登録" name="btn_reg" id="btn_reg" class="btn" style="margin-left:250px;">
-                <input type="button" value="クリア" name="btn_clear" id="btn_clear" class="btn" style="margin-left:50px;">
+                <input type="button" value="クリア" name="btn_clear" id="btn_clear" class="btn" style="margin-left:30px;">
             </div>
         </div>
     </div>
