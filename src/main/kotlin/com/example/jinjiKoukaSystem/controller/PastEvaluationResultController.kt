@@ -27,5 +27,4 @@ class PastEvaluationResultController {
         model.addAttribute("appraisalResult", appraisalResult)
         return "pastEvaluation"
     }
-
 }

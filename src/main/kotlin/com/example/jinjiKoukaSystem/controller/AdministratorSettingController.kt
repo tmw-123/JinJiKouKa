@@ -1,5 +1,6 @@
 package com.example.jinjiKoukaSystem.controller
 
+import com.example.jinjiKoukaSystem.model.AppraisalResult
 import com.example.jinjiKoukaSystem.model.Grade
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
