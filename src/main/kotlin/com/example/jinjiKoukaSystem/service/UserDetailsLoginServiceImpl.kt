@@ -1,6 +1,6 @@
 package com.example.jinjiKoukaSystem.service
 
-import com.example.jinjiKoukaSystem.dao.AppRoleDAO
+import com.example.jinjiKoukaSystem.dao.AppRoleDao
 import com.example.jinjiKoukaSystem.dao.AppUserDao
 import com.example.jinjiKoukaSystem.model.AppUser
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,7 +18,7 @@ class UserDetailsLoginServiceImpl : UserDetailsService {
     private val appUserDAO: AppUserDao? = null
 
     @Autowired
-    private val appRoleDAO: AppRoleDAO? = null
+    private val appRoleDao: AppRoleDao? = null
 
     @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(userName: String): UserDetails {
@@ -30,7 +30,7 @@ class UserDetailsLoginServiceImpl : UserDetailsService {
         println("Found User: $appUser")
 
         // [ROLE_USER, ROLE_ADMIN,..]
-        val roleNames = appRoleDAO!!.getRoleNames(appUser.getUserId()!!)
+        val roleNames = appRoleDao!!.getRoleNames(appUser.getUserId()!!)
         val grantList: MutableList<GrantedAuthority> = ArrayList()
         if (roleNames != null) {
             for (role in roleNames) {

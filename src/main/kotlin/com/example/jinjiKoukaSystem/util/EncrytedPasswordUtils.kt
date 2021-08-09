@@ -1,4 +1,4 @@
-package com.example.jinjiKoukaSystem.utils
+package com.example.jinjiKoukaSystem.util
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 

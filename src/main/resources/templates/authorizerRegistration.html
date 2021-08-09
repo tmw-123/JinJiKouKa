@@ -162,7 +162,7 @@ tr:nth-child(odd){
     <hr style="width:90%;margin-left:70px;border-top: 1px dashed red;"><br>
 </div>
 <div style="margin-left: 70px;">
-    <form action="#" th:action="@{/saveAuthorizerRegistration}" th:object="${authorizerReg}" method="post">
+    <form action="#" th:action="@{/saveAuthorizerRegistration}" method="post">
         <label style="margin-left:50px;">承認者ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" th:text="*{approver_id}" name="approver_id" class="txtbox" style="margin-left:50px;">
         <label style="margin-left:90px;">自己評価フラグ</label>&nbsp;&nbsp;&nbsp;&nbsp;

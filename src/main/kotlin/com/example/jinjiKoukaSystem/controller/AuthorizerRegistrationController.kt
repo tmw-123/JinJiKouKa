@@ -47,26 +47,26 @@ class AuthorizerRegistrationController {
             authorizerReg.approach_attitude4_item,authorizerReg.approach_attitude4_evaluation_points,authorizerReg.approach_attitude4_weight_salary_increase,authorizerReg.approach_attitude4_weight_bonus,authorizerReg.approach_attitude4_self_evaluation_points,authorizerReg.approach_attitude4_primary_evaluation_points,authorizerReg.approach_attitude4_secondary_evaluation_points,authorizerReg.approach_attitude4_depart_adjust_points,
             authorizerReg.primary_secondary_evaluation_flg,authorizerReg.evaluation_update_flg,authorizerReg.depart_adjust_id,authorizerReg.retire_flg,authorizerReg.appraisal_authority,authorizerReg.system_create_authority,authorizerReg.birthday,authorizerReg.company_entry_date,authorizerReg.delete_category,authorizerReg.primary_evaluation_authority,authorizerReg.secondary_evaluation_authority,authorizerReg.service_period_year,authorizerReg.service_period_month,
             authorizerReg.display_primary_evaluation_name,authorizerReg.display_secondary_evaluation_name,authorizerReg.display_primary_secondary_evaluation_name,authorizerReg.display_depart_adjust_evaluation_name,authorizerReg.display_data_status,authorizerReg.display_selection_flg,authorizerReg.work_flg);
-        
+
         authorizerRepository?.save(newAuthorizerReg)
         return "redirect:/authorizerRegistration"
     }
 
-    @RequestMapping("/authorizerRegEdit/{approver_id}",method = [RequestMethod.GET])
-    fun authorizerRegEdit(@PathVariable("approver_id") approver_id: String, model: Model) : String
+    @RequestMapping("/authorizerRegEdit/{id}",method = [RequestMethod.GET])
+    fun authorizerRegEdit(@PathVariable("id") id: String, model: Model) : String
     {
         // 修正ボタン押した場合、
-        val editAuthorizer: Base = authorizerRepository?.baseNo(approver_id) as Base
+        val editAuthorizer: Base = authorizerRepository?.baseNo(id) as Base
         model.addAttribute("editAuthorizer", editAuthorizer)
         return "authorizerRegEdit"
     }
 
     @PostMapping("/updateAuthorizerInfo")
     @Throws(Exception::class)
-    fun updateAuthorizer(model: Model?, @ModelAttribute("authorizer") authorizer: Base?, principal: Principal?): String?
+    fun updateAuthorizer(model: Model?, @ModelAttribute("authorizerReg") authorizerReg: Base?, principal: Principal?): String?
     {
         // 承認者更新（m_base テーブル）
-        authorizerService?.saveAuthorizer(authorizer)
+        authorizerService?.saveAuthorizer(authorizerReg)
         return "redirect:/authorizerRegistration"
     }
 

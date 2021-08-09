@@ -2,7 +2,6 @@ package com.example.jinjiKoukaSystem.service
 
 import com.example.jinjiKoukaSystem.model.Base
 import com.example.jinjiKoukaSystem.repository.AuthorizerRegistrationRepository
-import com.example.jinjiKoukaSystem.repository.GradeRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

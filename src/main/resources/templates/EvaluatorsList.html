@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>評価者一覧</title>
+    <title>評価者設定一覧</title>
     <style>
 *{
 margin:0;
@@ -20,9 +20,9 @@ text-align: center;
 margin: 0 auto;
 margin-top:50px;
 }
- .annualtable {
+ .evaluatorTable {
       border-collapse: collapse;
-      margin-left: 10px;
+      margin-left: 100px;
       width: 700px;
     }
 
@@ -38,7 +38,7 @@ margin-top:50px;
     }
     div.scrollpjlist {
     margin-top: 25px;
-    width: 750px;
+    width: 1000px;
     height: 200px;
     overflow: auto;
     white-space: nowrap;
@@ -54,54 +54,180 @@ div.scrollpjlist a {
 div.scrollpjlist a:hover {
   background-color: #777;
 }
-    </style>
-</head>
-<body>
-<div class="container">
-<h3 style="float: left;font-family: Arial, sans-serif;font-size: 25px;">評価者一覧</h3><br>
-<div style="    float: left;">
-    <form>
-        <label style="font-family: Arial, sans-serif;font-size: 16px;float: left;margin-top: 30px;">社員番号</label>
-        <select name="Supplier" id="supplier" style="width: 234px;height:28px;margin-left: -300px;margin-top: 30px;">
-            <option></option>
-            <option th:each="empCd : ${empCd}" th:text="${empCd.empCd}"></option>
-        </select>
-    </form>
-    <div class="scrollpjlist">
-        <table class="annualtable">
-            <thead>
-            <th></th>
-            <th>評価者</th>
-            <th>役職</th>
-            <th>等級</th>
-            <th>氏名</th>
-            </thead>
-            <tbody>
-            <tr th:each="evaluatorList : ${evaluatorList}">
-                <td><input type="checkbox" value="1"></td>
-                <td th:text="${evaluatorList.empCd}"></td>
-                <td th:text="${evaluatorList.officer}"></td>
-                <td th:text="${evaluatorList.grade}"></td>
-                <td th:text="${evaluatorList.name}"></td>
-               <!-- <td>
-                    <a th:href="@{/ProjectEdit/{prjNo}(prjNo=${pjList.prjNo})}" style="color: black;font-family: Arial, sans-serif;font-size: 16px;text-underline-position: under;">Edit</a>&nbsp;&nbsp;
-                    <a href="" style="color: black;font-family: Arial, sans-serif;font-size: 16px;">Earnings</a>
-                </td>-->
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <button style="margin-left: -300px;width: 70px;background: #4686cf;height: 30px;border: 1px solid;">登録</button>
-    <button style="margin-left: 30px;width: 70px;background: #4686cf;height: 31px;border: 1px solid;">クリア</button>
-</div>
-</div>
-<script>
-function validateClear(){
-     document.getElementById("name").value="";
-     document.getElementById("supplier").value="";
-    <!-- alert("Wrong Username or Password!");-->
-}
-</script>
 
+.btn{
+width:80px;
+height:30px;
+border:none;
+background:#5cbf96;
+border-radius:5px;
+text-align:center;
+font-size:15px;
+margin-top:5px;
+}
+.btn:hover {
+background-color: #555;
+color: white;
+
+table {
+  border-collapse: collapse;
+  width: 1300px;
+}
+
+th, td {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
+th {
+    background: #4c6491;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+}
+tr:nth-child(odd){
+  background-color: #c1e4f7;
+  color: #0a0a0a;
+}
+
+.zui-table {
+    border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+    background-color: #DDEFEF;
+    border: none;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-table tbody td {
+    border-bottom: solid 1px #DDEFEF;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+    white-space: nowrap;
+}
+.zui-wrapper {
+    position: relative;
+    border:solid;
+    border-color:gray;
+    margin-right:120px;
+}
+
+.zui-scroller {
+    margin-left: 141px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 5px;
+    width: 87%;
+}
+
+.zui-table .zui-sticky-col {
+    border-left: solid 1px #DDEFEF;
+    border-right: solid 1px #DDEFEF;
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 120px;
+    text-align:center;
+}
+</style>
+</head>
+<body style="font-family: Arial, sans-serif;font-size: 16px;">
+<div>
+    <h2 style="margin-left: 600px;margin-top: 25px;font-family: Arial, sans-serif;font-size: 25px;height:25px;">評価者設定一覧</h2><br><br>
+    <hr style="width:90%;margin-left:70px;border-top: 1px dashed red;"><br>
+</div>
+<div style="margin-left:100px;">
+    <form action="#" th:action="@{/register1}" method="GET">
+        <label style="margin-left: 80px;">所属</label>
+        <select name="belongCd" class="combo" style="width: 180px;height:30px;margin-left: 30px;">
+            <option></option>
+            <option th:each="belongs:${belongsList}" th:text="${belongs.belongCd}"></option>
+        </select><br><br>
+
+        <label style="margin-left: 80px;">氏名</label>
+        <select name="empCd" class="combo" style="width: 180px;height:30px;margin-left: 30px;">
+            <option></option>
+            <option th:each="emp:${empList}" th:text="${emp.empCd}"></option>
+        </select>
+
+        <label style="margin-left: 70px;">社員番号</label>
+        <input type="text" name="txtName" id="txtName" style="margin-left:20px;width: 170px;height:30px;padding: 8px 20px;" readonly>
+
+        <input type="button" value="選択" name="btn_select" id="btn_select" style="margin-left:30px;" class="btn">
+    </form><br>
+
+   <!-- <div class="scrollpjlist">-->
+        <div class="zui-wrapper" style="margin-left:80px;">
+            <div class="zui-scroller">
+                <table class="zui-table">
+                    <thead>
+                    <tr>
+                        <th>考課種類</th>
+                        <th>氏名</th>
+                        <th>社員番号</th>
+                        <th>等級</th>
+                        <th width="200px;">職位名</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="evaluatorList : ${evaluator}">
+                        <td style="text-align:left;">一次評価者</td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
+                        <td></td>
+                        <td></td>
+                        <td width="200px;"></td>
+                    </tr>
+
+                    <tr th:each="evaluatorList : ${evaluator}">
+                        <td style="text-align:left;">二次評価者</td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
+                        <td></td>
+                        <td></td>
+                        <td width="200px;"></td>
+                    </tr>
+
+                    <tr th:each="evaluatorList : ${evaluator}">
+                        <td style="text-align:left;">一次.二次評価者</td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
+                        <td></td>
+                        <td></td>
+                        <td width="200px;"></td>
+                    </tr>
+
+                    <tr th:each="evaluatorList : ${evaluator}">
+                        <td style="text-align:left;">部門調整</td>
+                        <td><select name="empCd" class="combo" style="width: 180px;height:30px;">
+                            <option></option>
+                        </select></td>
+                        <td></td>
+                        <td></td>
+                        <td width="200px;"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+                <input type="submit" value="登録" name="btn_reg" id="btn_reg" class="btn" style="margin-left:250px;">
+                <input type="button" value="クリア" name="btn_clear" id="btn_clear" class="btn" style="margin-left:50px;">
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

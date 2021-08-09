@@ -188,9 +188,7 @@ text-align: center;
               </table><br>
 
               <div class="center">
-                <!--<a th:href="@{/administratorPage}">-->
                   <input type="submit" value="ログイン" name="btn_login" id="btn_login">
-                <!--</a>-->
               </div>
             </form>
           </div>
@@ -200,50 +198,5 @@ text-align: center;
     </div>
   </div>
 </div>
-<script>
-function validate(){
-  var uname=document.getElementById("username").value;
-  var pwd=document.getElementById("password").value;
-  var e_msg=document.getElementById("error_msg");
-  var login_count=0;
-  if(uname=="" ||  pwd==""){
-  e_msg.style.display="block";
-  setTimeout(function() {
-                    $('#error_msge').fadeOut('fast');
-                }, 1000);
-  }
-
-  else if(uname.length==4 && pwd.length==4){
-    if(uname=="user" && pwd=="1234"){
-    document.querySelector(".popup").classList.add("active");
-
-    document.querySelector("#btn_no").addEventListener("click",function(){
-    document.querySelector(".popup").classList.remove("active");
-    });
-    }
-
-    else{
-    e_msg.innerHTML="Username or Password incorrect!";
-    e_msg.style.display="block";
-    setTimeout(function() {
-                    $('#error_msge').fadeOut('fast');
-                }, 1000);
-    }
-    }
-
-  else{
-    e_msg.innerHTML="";
-    e_msg.style.display="block";
-    setTimeout(function() {
-                    $('#error_msge').fadeOut('fast');
-                }, 1000);
-  }
-    var form = document.getElementById("form-id");
-   form.submit();
-}
-
-
-</script>
-
 </body>
 </html>

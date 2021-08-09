@@ -17,16 +17,11 @@ class AppUserMapper : RowMapper<AppUser> {
     @Throws(SQLException::class)
     fun mapRowID(rs: ResultSet, rowNum: Int): AppUser {
         val userId = rs.getLong("User_Id")
-        /*
-		 * String userName = rs.getString("User_Name"); String encrytedPassword =
-		 * rs.getString("Encryted_Password");
-		 */return AppUser(userId)
+        return AppUser(userId)
     }
 
     companion object {
         const val BASE_SQL //
                 = "Select u.user_id, u.employee_cd, u.password From password u "
-        /*const val BASE_SQL1 //
-                = "Select  u.user_id  From user_master u WHERE u.email = ?1 "*/
     }
 }

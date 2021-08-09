@@ -20,7 +20,6 @@ class AppUserDao : JdbcDaoSupport() {
     }
 
     fun findUserAccount(userName: String): AppUser? {
-        // Select .. from App_User u Where u.User_Name = ?
         val sql = AppUserMapper.BASE_SQL + " where u.employee_cd = ? "
         println(sql)
         val params = arrayOf<Any>(userName)

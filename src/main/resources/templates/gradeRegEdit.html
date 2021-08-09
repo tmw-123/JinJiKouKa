@@ -440,22 +440,14 @@ tr:nth-child(odd){
         </div>
       </div>
     </div><br>
-
     <!--buttons-->
-    <input type="submit" value="登録ボタン" name="btn_login" id="btn_reg" style="margin-left:35%">
-
-
+    <input type="submit" value="登録" name="btn_reg" id="btn_reg" style="margin-left:35%">
   </form>
-
 
   <a th:each="allGradeList : ${editGrade}" th:href="@{/deleteGrade/{grade_id}(grade_id=${allGradeList.grade_id})}">
   <input type="submit" value="登録ボタン" name="btn_delete" id="btn_delete" style="margin-left:35%">
   </a>
 
 </div>
-
-
-
-
 </body>
 </html>
