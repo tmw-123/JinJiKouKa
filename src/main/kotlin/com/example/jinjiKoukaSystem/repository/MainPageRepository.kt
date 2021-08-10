@@ -1,5 +1,6 @@
 package com.example.jinjiKoukaSystem.repository
 
+import com.example.jinjiKoukaSystem.model.MainData
 import com.example.jinjiKoukaSystem.model.MainPage
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
@@ -13,6 +14,14 @@ interface MainPageRepository : CrudRepository<MainPage, String> {
         nativeQuery = true
     )
     fun getAllMainPageData(): List<MainPage?>?
+
+    @Query(
+        value = "SELECT ad_name FROM m_user WHERE ad_grade=6",
+        nativeQuery = true
+    )
+    fun getAllMainPage(): String?
+
+
 
 
 

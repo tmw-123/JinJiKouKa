@@ -1,5 +1,6 @@
 package com.example.jinjiKoukaSystem.service
 
+import com.example.jinjiKoukaSystem.model.MainData
 import com.example.jinjiKoukaSystem.model.MainPage
 import com.example.jinjiKoukaSystem.repository.MainPageRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,6 +15,14 @@ class MainPageServiceImpl : MainPageService {
     override fun getAllMainPageData(): List<MainPage?>? {
         return ListRepo?.getAllMainPageData()
     }
+
+    @Autowired
+    private val ListRepo1: MainPageRepository? = null
+
+    override fun getAllMainPage(): String? {
+        return ListRepo1?.getAllMainPage()
+    }
+
 
 
 

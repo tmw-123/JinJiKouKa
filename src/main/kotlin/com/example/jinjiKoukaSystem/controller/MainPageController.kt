@@ -1,5 +1,6 @@
 package com.example.jinjiKoukaSystem.controller
 
+import com.example.jinjiKoukaSystem.model.MainData
 import com.example.jinjiKoukaSystem.model.MainPage
 import com.example.jinjiKoukaSystem.repository.MainPageRepository
 import com.example.jinjiKoukaSystem.service.MainPageService
@@ -26,11 +27,18 @@ class MainPageController {
 
 
         val mainPageData: List<MainPage> = MainPageService?.getAllMainPageData() as List<MainPage>
-        print("hello")
-        print(mainPageData[0].belong)
+
+        val mainData: String? = MainPageService?.getAllMainPage()
+
+
+
 
 
         model.addAttribute("mainPageData", mainPageData);
+
+        model.addAttribute("mainData", mainData);
+
+
 
 
 

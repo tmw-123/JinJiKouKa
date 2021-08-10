@@ -27,7 +27,7 @@
 		<div style="text-align: center;">
 			<h1 style="font-size: 30px;">人事考課システム</h1>
 			<a style="font-size: 25px;">過去評価一覧を参照する</a>
-			<button id="showAdminData" style="background-color: blue;font-size: 15px;margin-left: 300px;">hide and
+			<button id="showAdminData"  style="background-color: blue;font-size: 15px;margin-left: 300px;">hide and
 				show</button>
 		</div>
 	</div>
@@ -76,7 +76,7 @@
 					<tbody>
 
 					<tr th:each="mainPageData : ${mainPageData}">
-						<td style="width:10px; height:30px;">二次考課</td>
+						<td th:each="mainData : ${mainData}" th:text="${mainData}" style="width:10px; height:30px;"></td>
 						<td th:text="${mainPageData.belong}" style="width:10px; height:30px;"></td>
 						<td th:text="${mainPageData.officer}" style="width:10px; height:30px;"></td>
 						<td th:text="${mainPageData.grade}" style="width:10px; height:30px;"></td>
@@ -84,6 +84,7 @@
 						<td th:text="${mainPageData.evaluation_status}" style="width:10px; height:30px;"></td>
 						<td th:text="${mainPageData.secondary_evaluation_rank_bonus}" style="width:10px; height:30px;"></td>
 						<td th:text="${mainPageData.primary_evaluation_rank_bonus}" style="width:10px; height:30px;"></td>
+						<td style="width:10px; height:30px;color: red;">評価</td>
 
 					</tr>
 
