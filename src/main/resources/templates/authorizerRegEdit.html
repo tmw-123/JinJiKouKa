@@ -314,7 +314,7 @@ tr:nth-child(odd){
 
     <input type="submit" value="登録" name="btn_login" id="btn_reg" style="margin-left:35%">
   </form>
-  <a th:each="allAuthorizer : ${editAuthorizer}" th:href="@{/deleteAuthorizer/{approver_id}(id=${allAuthorizer.approver_id})}">
+  <a th:each="allAuthorizer : ${editAuthorizer}" th:href="@{/deleteAuthorizer/{id}(id=${allAuthorizer.id})}">
     <input type="submit" value="削除" name="btn_delete" id="btn_delete" style="margin-left:35%">
   </a>
 </div>

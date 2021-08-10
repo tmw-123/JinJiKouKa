@@ -16,10 +16,10 @@ interface AuthorizerRegistrationRepository : CrudRepository<Base, String> {
     fun allAuthorizerList(): List<Base?>?
 
     @Query(
-        value = "SELECT * FROM m_base WHERE approver_id =:id",
+        value = "SELECT * FROM m_base WHERE id =:id",
         nativeQuery = true
     )
-    fun baseNo(@Param("id") id: String?): Base
+    fun baseNo(@Param("id") id: Long?): Base
 
 
     @Query(value = "SELECT grade_id FROM m_each_grade_appraisal_pattern ORDER BY grade_id DESC LIMIT 1", nativeQuery = true)

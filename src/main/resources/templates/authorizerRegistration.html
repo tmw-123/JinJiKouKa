@@ -313,7 +313,8 @@ tr:nth-child(odd){
         <input type="text" th:text="*{depart_adjust_id}" name="depart_adjust_id" class="txtbox" style="margin-left:34px;"><br><br>
 
         <input type="submit" value="登録" name="btn_reg" id="btn_reg" style="margin-left:35%">
-        <input type="button" value="削除" name="btn_delete" id="btn_delete">
+
+        <!--<input type="button" value="削除" name="btn_delete" id="btn_delete">-->
     </form>
     <br><br>
 </div>
@@ -376,7 +377,7 @@ tr:nth-child(odd){
             </thead>
             <tbody>
             <tr th:each="allAuthorizer : ${allAuthorizerLists}">
-                <td class="zui-sticky-col"><a th:href="@{/authorizerRegEdit/{approver_id}(approver_id=${allAuthorizer.approver_id})}">修正</a></td>
+                <td class="zui-sticky-col"><a th:href="@{/authorizerRegEdit/{id}(id=${allAuthorizer.id})}">修正</a></td>
                 <td th:text="${allAuthorizer.id}" id="id"></td>
                 <td th:text="${allAuthorizer.approver_id}" id="approver_id"></td>
                 <td th:text="${allAuthorizer.password1}" id="password1"></td>
