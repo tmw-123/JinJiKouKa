@@ -13,21 +13,21 @@ class MainData{
     @Column(name = "employee_cd")
     var employee_cd: String? = null
 
-    @Column(name = "ad_grade")
-    var ad_grade: String? = null
+    @Column(name = "grade")
+    var grade: String? = null
 
-    @Column(name = "ad_name")
-    var ad_name: String? = null
+    @Column(name = "name")
+    var name: String? = null
 
 
 
 
     constructor()
-    constructor(id: String?, employee_cd: String?, ad_grade: String?, ad_name: String?) {
+    constructor(id: String?, employee_cd: String?, grade: String?, name: String?) {
         this.id = id
         this.employee_cd = employee_cd
-        this.ad_grade = ad_grade
-        this.ad_name = ad_name
+        this.grade = grade
+        this.name = name
     }
 
 

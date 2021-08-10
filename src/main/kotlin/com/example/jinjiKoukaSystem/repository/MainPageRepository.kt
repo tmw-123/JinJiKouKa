@@ -16,7 +16,7 @@ interface MainPageRepository : CrudRepository<MainPage, String> {
     fun getAllMainPageData(): List<MainPage?>?
 
     @Query(
-        value = "SELECT ad_name FROM m_user WHERE ad_grade=6",
+        value = "SELECT name FROM m_user WHERE grade=6",
         nativeQuery = true
     )
     fun getAllMainPage(): String?
